@@ -1,3 +1,32 @@
 @tailwind base;
 @tailwind components;
+
+.inputField {
+    @apply w-full border-2 px-1 text-purple-800 hover:border-purple-600 focus:outline-none focus:border-purple-600 rounded-md transition-all;
+}
+
+.navlink {
+    @apply px-4 py-2 text-lg flex flex-row items-center hover:bg-selected transition-all
+}
+
 @tailwind utilities;
+
+@layer utilities {
+    .animation-delay-2000 {
+        animation-delay: 2s;
+    }
+    
+    .animation-delay-3000 {
+        animation-delay: 3s;
+    }
+    
+    .animation-delay-6000 {
+        animation-delay: 6s;
+    }
+}
+
+@layer base {
+    body {
+        font-family: 'Work Sans', sans-serif;
+    }
+}
