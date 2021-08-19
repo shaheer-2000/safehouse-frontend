@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import { useHistory, useParams } from 'react-router';
-import Users from '../features/Users';
-import Jobs from '../features/Jobs';
-import Training from '../features/Training';
-import Funding from '../features/Funding';
-import Insurance from '../features/Insurance';
-import Houses from '../features/Houses';
-import Profile from '../features/Profile';
-import Rehablitation from '../features/Rehablitation';
+import Users from '../features/users/Users';
+import Jobs from '../features/jobs/Jobs';
+import Training from '../features/training/Training';
+import Funding from '../features/funding/Funding';
+import Insurance from '../features/insurance/Insurance';
+import Houses from '../features/houses/Houses';
+import Profile from '../features/profile/Profile';
+import Rehablitation from '../features/rehablitation/Rehablitation';
 import { BsHouseFill, BsPeopleCircle } from 'react-icons/bs';
 import { FaUsers, FaBriefcase, FaChalkboardTeacher, FaHandHoldingUsd, FaUserShield, FaHandHoldingHeart } from 'react-icons/fa';
 
@@ -31,7 +31,7 @@ const Dashboard = (props) => {
                         </div>
                         <div>
                             {
-                                (user === 'manager') ?
+                                (user === 'admin') ?
                                 <>
                                     <div className="mt-6 flex flex-col">
                                         <NavLink to={`/dashboard/${user}/users`} className="navlink" activeClassName="bg-selected hover:bg-opacity-100"><FaUsers className="mr-4"/>Users</NavLink>
@@ -43,10 +43,10 @@ const Dashboard = (props) => {
                                         <NavLink to={`/dashboard/${user}/rehablitation`} className="navlink" activeClassName="bg-selected"><FaHandHoldingHeart className="mr-4" />Rehablitation</NavLink>
                                     </div>
                                 </> :
-                                (user === 'admin') ?
+                                (user === 'manager') ?
                                 <>
                                     <div className="mt-6 flex flex-col">
-                                        <NavLink to={`/dashboard/${user}/users`} className="navlink" activeClassName="bg-selected hover:bg-opacity-100"><FaUsers className="mr-4"/>Home</NavLink>
+                                        <NavLink to={`/dashboard/${user}/users`} className="navlink" activeClassName="bg-selected hover:bg-opacity-100"><FaUsers className="mr-4"/>Users</NavLink>
                                         <NavLink to={`/dashboard/${user}/jobs`} className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4" />Jobs</NavLink>
                                         <NavLink to={`/dashboard/${user}/training`} className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4" />Training</NavLink>
                                         <NavLink to={`/dashboard/${user}/funding`} className="navlink" activeClassName="bg-selected"><FaHandHoldingUsd className="mr-4" />Fundings</NavLink>
@@ -78,24 +78,20 @@ const Dashboard = (props) => {
                         </div>
                     </div>
                     <div className="w-32 mx-auto mb-8">
-                        <button className="w-full px-2 py-1 border-2 border-red-600 border-opacity-50 rounded-xl bg-red-600 bg-opacity-50 hover:bg-opacity-100 flex items-center justify-center transition-all" onClick={() => history.push('/')}>Logout</button>
+                        <button className="w-full px-2 py-1 border-2 border-red-600 border-opacity-50 rounded-xl bg-red-600 bg-opacity-50 hover:bg-opacity-100 transition-all" onClick={() => history.push('/')}>Logout</button>
                     </div>
                 </div>
-                <div className="w-full h-full flex flex-col bg-secondary">
-                    <div className="h-20 px-24 border-b-2 border-gray-300 bg-white">
-                    </div>
-                    <div className="px-24 py-6">
-                        <Switch>
-                            <Route path={`/dashboard/${user}/users`} component={Users}></Route>
-                            <Route path={`/dashboard/${user}/jobs`} component={Jobs}></Route>
-                            <Route path={`/dashboard/${user}/training`} component={Training}></Route>
-                            <Route path={`/dashboard/${user}/funding`} component={Funding}></Route>
-                            <Route path={`/dashboard/${user}/houses`} component={Houses}></Route>
-                            <Route path={`/dashboard/${user}/rehablitation`} component={Rehablitation}></Route>
-                            <Route path={`/dashboard/${user}/insurance`} component={Insurance}></Route>
-                            <Route path={`/dashboard/${user}/profile`} component={Profile}></Route>
-                        </Switch>
-                    </div>
+                <div className="w-full h-full">
+                    <Switch>
+                        <Route path={`/dashboard/${user}/users`} component={() => <Users user={user} />}></Route>
+                        <Route path={`/dashboard/${user}/jobs`} component={Jobs}></Route>
+                        <Route path={`/dashboard/${user}/training`} component={Training}></Route>
+                        <Route path={`/dashboard/${user}/funding`} component={Funding}></Route>
+                        <Route path={`/dashboard/${user}/houses`} component={Houses}></Route>
+                        <Route path={`/dashboard/${user}/rehablitation`} component={Rehablitation}></Route>
+                        <Route path={`/dashboard/${user}/insurance`} component={Insurance}></Route>
+                        <Route path={`/dashboard/${user}/profile`} component={Profile}></Route>
+                    </Switch>
                 </div>
             </div>
         </>
