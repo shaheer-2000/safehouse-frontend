@@ -31,11 +31,11 @@ module.exports = {
             transform: 'translate(0, 0) scale(1)'
           },
           '33%': {
-            transform: 'translate(30px, -50px) scale(1.1)',
+            transform: 'translate(30px, -20px) scale(1.1)',
             'border-radius': '30% 70% 70% 30% / 30% 30% 70% 70%'
           },
           '66%': {
-            transform: 'translate(50px, 50px) scale(0.9)',
+            transform: 'translate(25px, 25px) scale(0.9)',
             'border-radius': '60% 40% 18% 82% / 30% 82% 18% 70%'
           },
           '100%': {
