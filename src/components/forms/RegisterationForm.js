@@ -128,7 +128,7 @@ const RegisterationForm = () => {
                         <td align="right">{ (userRegisteration.role === "homeless") ? <div></div>:<div><label htmlFor="email">E-mail Address </label></div> }</td><td>{ (userRegisteration.role === "homeless") ? <div></div> : <div><input type="email" required autoComplete="off" value={userRegisteration.email} onChange={handleInput} name="email" id="email"/></div> }</td>
                     </tr>
                     <tr>
-                        <td align="right">{ (userRegisteration.role === "ngo") ? <div> <label htmlFor="description">Description </label></div>:<div></div> }</td><td> { (userRegisteration.role === "ngo") ? <div><textarea rows="5" cols="50"  required autoComplete="off" value={userRegisteration.description} onChange={handleInput} name="description" id="description"/></div> : <div></div> }</td>
+                        <td align="right">{ (userRegisteration.role === "ngo") ? <div><label htmlFor="description">Description </label></div>:<div></div> }</td><td> { (userRegisteration.role === "ngo") ? <div><textarea rows="5" cols="50"  required autoComplete="off" value={userRegisteration.description} onChange={handleInput} name="description" id="description"/></div> : <div></div> }</td>
                     </tr>
                     <tr>
                         <td align="right"> { (userRegisteration.role === "ngo") ? <div><label htmlFor="website">WebSite </label></div>:<div></div> }</td><td>{ (userRegisteration.role === "ngo") ? <div><input type="website" autoComplete="off" value={userRegisteration.website} onChange={handleInput} name="website" id="website"/></div> : <div></div> }</td>
