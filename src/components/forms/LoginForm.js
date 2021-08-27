@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-import { FaArrowRight } from 'react-icons/fa'
 
 const LoginForm = () => {
     const [username, setusername] = useState('');
@@ -21,7 +20,7 @@ const LoginForm = () => {
         await setTimeout(() => {
             console.log(loginData);
             
-            history.push(`/dashboard/${loginData.username}`);
+            history.push("/dashboard");
         }, 3000);
     }
 
@@ -37,9 +36,8 @@ const LoginForm = () => {
                     <label htmlFor="userpassword">Password</label><br></br>
                     <input type="password" id="userpassword" name="password" value={password} onChange={(e) => setpassword(e.target.value)} required title="Enter your password" className="inputField"></input>
                 </div>
-                <div className="w-full flex flex-row justify-between">
-                    <button type="submit" id="loginButton" className=" w-3/12 rounded-lg bg-purple-800 text-secondary p-1 hover:bg-purple-600 hover:shadow-md transition-all">Login</button>
-                    <button type="button" onSubmit={() => history.push('/createUser')} className="text-purple-800 hover:text-purple-600 transition-all">Register yourself <FaArrowRight className="inline-block" /></button>
+                <div className="w-full flex flex-row">
+                    <button type="submit" id="loginButton" className=" w-full rounded-lg bg-purple-800 text-secondary p-1 hover:bg-purple-600 hover:shadow-md transition-all">Login</button>
                 </div>
             </div>
         </form>

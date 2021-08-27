@@ -9,7 +9,7 @@ const App = () => {
     <Router>
       <Switch>
         <Route exact path="/" component={Login}></Route>
-        <Route path="/dashboard/:user" component={() => <Dashboard authorized={true} user='homeless'></Dashboard>}></Route>
+        <Route path="/dashboard" component={() => <Dashboard authorized={true} user='admin'></Dashboard>}></Route>
         <Route component={PageNotFound}></Route>
       </Switch>
     </Router>

@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       animation: {
         appear: 'appear 0.4s forwards',
-        blob: 'blob 18s infinite'
+        blob: 'blob 12s infinite'
       },
       colors: {
         primary: '#303052',

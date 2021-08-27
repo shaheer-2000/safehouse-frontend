@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Ngos = () => {
+const Funding = () => {
     return (
     <>
     </>
     )
 }
 
-export default Ngos;
+export default Funding;

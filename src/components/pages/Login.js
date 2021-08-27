@@ -15,14 +15,14 @@ const Login = () => {
                 <div className="absolute z-0 -top-6 left-16 w-56 h-56 bg-pink-300 rounded-full mix-blend-multiply opacity-40 filter blur-xl animate-blob animation-delay-3000"></div>
                 <div className="absolute z-0 top-10 left-36 w-56 h-56 bg-yellow-300 rounded-full mix-blend-multiply opacity-40 filter blur-xl animate-blob animation-delay-6000"></div>
                 <div className="max-w-xl h-48 flex flex-col justify-between relative z-20">
-                <div>
-                    <p className="text-primary font-comfortaa text-3xl">At SafeHouse we not only improve society, but we help create one</p>
-                    <p className="text-primary font-comfortaa text-xl">Witness people change their life</p>
-                </div>
-                <div>
-                    <button className="w-max mr-6 text-primary font-comfortaa text-xl border-2 border-primary rounded-xl px-2 py-1">Discover more</button>
-                    <button className="w-max bg-primary text-secondary font-comfortaa text-xl border-2 border-primary rounded-xl px-2 py-1">Donate now</button>
-                </div>
+                    <div>
+                        <p className="text-primary font-comfortaa text-3xl">At SafeHouse we not only improve society, but we help create one</p>
+                        <p className="text-primary font-comfortaa text-xl">Witness people change their life</p>
+                    </div>
+                    <div>
+                        <button className="w-max mr-6 bg-primary text-secondary font-comfortaa text-xl border-2 border-primary rounded-xl px-2 py-1">Donate now</button>
+                        <button className="w-max text-primary font-comfortaa text-xl border-2 border-primary rounded-xl px-2 py-1">Discover more</button>
+                    </div>
                 </div>
                 <div>
                     <LoginForm></LoginForm>
