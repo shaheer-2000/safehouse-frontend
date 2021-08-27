@@ -23,10 +23,7 @@ const JobRegisterationForm = () => {
         //send to backend from here
         e.preventDefault();
         
-        const newuser = {...userRegisteration, id: new Date().getTime().toString() }
-        console.log(newuser)
-        setuserRecord([...userRecord, newuser]);
-        console.log(newuser)
+        const newuser = {...userRegisteration}
 
         setuserRegisteration({discipline: "",
         title: "",
@@ -37,7 +34,7 @@ const JobRegisterationForm = () => {
         });
     }
 
-    const [userRecord, setuserRecord] = useState([])
+
     
     
     return (

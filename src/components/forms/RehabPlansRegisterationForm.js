@@ -22,10 +22,7 @@ const RehabPlansRegisterationForm = () => {
         //send to backend from here
         e.preventDefault();
         
-        const newuser = {...userRegisteration, id: new Date().getTime().toString() }
-        console.log(newuser)
-        setuserRecord([...userRecord, newuser]);
-        console.log(newuser)
+        const newuser = {...userRegisteration}
 
         setuserRegisteration({title: "",
         duration: "",
@@ -35,7 +32,6 @@ const RehabPlansRegisterationForm = () => {
         });
     }
 
-    const [userRecord, setuserRecord] = useState([])
     
     
     return (
