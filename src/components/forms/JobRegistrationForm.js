@@ -42,25 +42,60 @@ const JobRegistrationForm = () => {
             <form action="" onSubmit={handleSubmit}>
                 <table>
                     <tr>
-                        <td align="right"><label htmlFor="discipline">Discipline </label></td><td> <input type="string" required autoComplete="off" value={userRegisteration.discipline} onChange={handleInput} name="discipline" id="discipline"/></td>
+                        <td align="right">
+                            <label htmlFor="discipline">Discipline </label>
+                        </td>
+                        <td>
+                            <input type="string" required autoComplete="off" value={userRegisteration.discipline} onChange={handleInput} name="discipline" id="discipline"/>
+                        </td>
                     </tr>
                     <tr>
-                        <td align="right"><label htmlFor="title">Title </label></td><td><input type="string" required autoComplete="off" value={userRegisteration.title} onChange={handleInput} name="title" id="title"/></td>
+                        <td align="right">
+                            <label htmlFor="title">Title </label>
+                        </td>
+                        <td>
+                            <input type="string" required autoComplete="off" value={userRegisteration.title} onChange={handleInput} name="title" id="title"/>
+                        </td>
                     </tr>
                     <tr>
-                        <td align="right"><label htmlFor="designation">Designation </label></td><td><input type="string" required autoComplete="off" value={userRegisteration.designation} onChange={handleInput} name="designation" id="designation"/></td>
+                        <td align="right">
+                            <label htmlFor="designation">Designation </label>
+                        </td>
+                        <td>
+                            <input type="string" required autoComplete="off" value={userRegisteration.designation} onChange={handleInput} name="designation" id="designation"/>
+                        </td>
                     </tr>
                     <tr>
-                        <td align="right"><label htmlFor="salary">Salary </label></td><td><input type="number" required autoComplete="off" value={userRegisteration.salary} onChange={handleInput} name="salary" id="salary"/></td>
+                        <td align="right">
+                            <label htmlFor="salary">Salary </label>
+                        </td>
+                        <td>
+                            <input type="number" required autoComplete="off" value={userRegisteration.salary} onChange={handleInput} name="salary" id="salary"/>
+                        </td>
                     </tr>
                     <tr>
-                        <td align="right"><label htmlFor="experience">Experience </label></td><td><input type="number" required autoComplete="off" value={userRegisteration.experience} onChange={handleInput} name="experience" id="experience"/></td>
+                        <td align="right">
+                            <label htmlFor="experience">Experience </label>
+                        </td>
+                        <td>
+                            <input type="number" required autoComplete="off" value={userRegisteration.experience} onChange={handleInput} name="experience" id="experience"/>
+                        </td>
                     </tr>
                     <tr>
-                        <td align="right"><label htmlFor="description">Description </label></td><td><textarea rows="5" cols="50"  required autoComplete="off" value={userRegisteration.description} onChange={handleInput} name="description" id="description"/></td>
+                        <td align="right">
+                            <label htmlFor="description">Description </label>
+                        </td>
+                        <td>
+                            <textarea rows="5" cols="50"  required autoComplete="off" value={userRegisteration.description} onChange={handleInput} name="description" id="description"/>
+                        </td>
                     </tr>
                     <tr>
-                        <td align="right"></td><td><button type="submit">Submit</button></td>
+                        <td align="right">
+
+                        </td>
+                        <td>
+                            <button type="submit">Submit</button>
+                        </td>
                     </tr>
                 </table>
             </form>
