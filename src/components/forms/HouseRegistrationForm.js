@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 
-const HouseRegisterationForm = () => {
+const HouseRegistrationForm = () => {
     
     const [userRegisteration, setuserRegisteration] = useState({
         rooms: "",
@@ -87,4 +87,4 @@ const HouseRegisterationForm = () => {
     )
 }
 
-export default HouseRegisterationForm
+export default HouseRegistrationForm
