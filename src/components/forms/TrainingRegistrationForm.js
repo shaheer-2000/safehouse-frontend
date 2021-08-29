@@ -1,12 +1,14 @@
 import React, {useState} from 'react'
 
 
-const RehabPlansRegisterationForm = () => {
+const TrainingRegistrationForm = () => {
     
     const [userRegisteration, setuserRegisteration] = useState({
+        discipline: "",
         title: "",
         duration: "",
-        type: "",
+        required_experience_level: "",
+        certification: "",
         fee: "",
         description:"",     
     });
@@ -24,9 +26,11 @@ const RehabPlansRegisterationForm = () => {
         
         const newuser = {...userRegisteration}
 
-        setuserRegisteration({title: "",
+        setuserRegisteration({discipline: "",
+        title: "",
         duration: "",
-        type: "",
+        required_experience_level: "",
+        certification: "",
         fee: "",
         description:"",  
         });
@@ -39,13 +43,20 @@ const RehabPlansRegisterationForm = () => {
             <form action="" onSubmit={handleSubmit}>
                 <table>
                     <tr>
+                        <td align="right"><label htmlFor="discipline">Discipline </label></td><td> <input type="string" required autoComplete="off" value={userRegisteration.discipline} onChange={handleInput} name="discipline" id="discipline"/></td>
+                    </tr>
+                    <tr>
                         <td align="right"><label htmlFor="title">Title </label></td><td><input type="string" required autoComplete="off" value={userRegisteration.title} onChange={handleInput} name="title" id="title"/></td>
                     </tr>
                     <tr>
                         <td align="right"><label htmlFor="duration">Duration </label></td><td><input type="number" required autoComplete="off" value={userRegisteration.duration} onChange={handleInput} name="duration" id="duration"/></td>
                     </tr>
                     <tr>
-                        <td align="right"><label htmlFor="type">Type </label></td><td><input type="string" required autoComplete="off" value={userRegisteration.type} onChange={handleInput} name="type" id="type"/></td>
+                        <td align="right"><label htmlFor="required_experience_level">Required experience level </label></td><td><input type="number" required autoComplete="off" value={userRegisteration.required_experience_level} onChange={handleInput} name="required_experience_level" id="required_experience_level"/></td>
+                    </tr>
+                    <tr>
+                        <td align="right"><label htmlFor="certification">Certification </label></td><td><input type="radio" autoComplete="off" value="available" onChange={handleInput} name="certification" id="available"/><label>Available</label>
+                    <input type="radio" autoComplete="off" value="unavailable" onChange={handleInput} name="certification" id="unavailable"/><label>Unavailable</label></td>
                     </tr>
                     <tr>
                         <td align="right"><label htmlFor="fee">Fee </label></td><td><input type="number" required autoComplete="off" value={userRegisteration.fee} onChange={handleInput} name="fee" id="fee"/></td>
@@ -62,4 +73,4 @@ const RehabPlansRegisterationForm = () => {
     )
 }
 
-export default RehabPlansRegisterationForm
+export default TrainingRegistrationForm
