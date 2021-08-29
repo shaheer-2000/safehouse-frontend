@@ -34,7 +34,7 @@ const managertype = [
 ];
 
 
-const RegisterationForm = () => {
+const RegistrationForm = () => {
 
     const [usertype, setusertype] = useState(null);
     const handleusertype = obj => {
@@ -167,4 +167,4 @@ const RegisterationForm = () => {
     )
 }
 
-export default RegisterationForm
+export default RegistrationForm
