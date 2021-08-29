@@ -75,10 +75,6 @@ const HouseRegistrationForm = () => {
                         <td align="right"><label htmlFor="phone">Phone Number </label></td><td><input type="number" required autoComplete="off" value={userRegisteration.phone} onChange={handleInput} name="phone" id="phone"/></td>
                     </tr>
                     <tr>
-                        <td align="right"><label htmlFor="status">Status </label></td><td><input type="radio" autoComplete="off" value="available" onChange={handleInput} name="status" id="available"/><label>Available</label>
-                    <input type="radio" autoComplete="off" value="unavailable" onChange={handleInput} name="status" id="unavailable"/><label>Unavailable</label></td>
-                    </tr>
-                    <tr>
                         <td align="right"></td><td><button type="submit">Submit</button></td>
                     </tr>
                 </table>

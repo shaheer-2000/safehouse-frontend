@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
 
-const EmployerRegistrationForm = () => {
+const AffiliatesRegistrationForm = () => {
     
     const [userRegisteration, setuserRegisteration] = useState({
         name: "",
@@ -67,4 +67,4 @@ const EmployerRegistrationForm = () => {
     )
 }
 
-export default EmployerRegistrationForm
+export default AffiliatesRegistrationForm
