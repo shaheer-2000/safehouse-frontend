@@ -144,235 +144,314 @@ const RegistrationForm = () => {
                             </td>
                         </tr>
                     }
-                    <tr>
-                        <td align="right">
-                            { 
-                                (userRegisteration.role === "homeless") ? 
-                                    <>
 
-                                    </>:
-                                    <>
-                                        <label htmlFor="email">E-mail Address </label>
-                                    </> 
-                            }
-                        </td>
-                        <td>
-                            { 
-                                (userRegisteration.role === "homeless") ? 
-                                    <>
-
-                                    </>: 
-                                    <>
-                                        <input type="email" required autoComplete="off" value={userRegisteration.email} onChange={handleInput} name="email" id="email"/>
-                                    </> 
-                            }
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
-                                        
-                                    </>:
-                                    <> 
+                    {
+                        (userRegisteration.role === "homeless") ? 
+                            <>
+                                <tr>
+                                    <td align="right">
                                         <label htmlFor="gender">Gender </label>
-                                    </> 
-                            }
-                        </td>
-                        <td>
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
-                                        
-                                    </>: 
-                                    <>
+                                    </td>
+                                    <td>
                                         <input required type="radio" autoComplete="off" value="male" onChange={handleInput} name="gender" id="male"/><label>Male</label>
                                         <input required type="radio" autoComplete="off" value="female" onChange={handleInput} name="gender" id="female"/><label>Female</label>
                                         <input required type="radio" autoComplete="off" value="other" onChange={handleInput} name="gender" id="other"/><label>Other</label>
-                                    </> 
-                            }
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
-                                        
-                                    </>: 
-                                    <>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
                                         <label htmlFor="dateofbirth">Date of Birth </label>
-                                    </> 
-                            }
-                        </td>
-                        <td>
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
-
-                                    </>: 
-                                    <>
+                                    </td>
+                                    <td>
                                         <input type="date" format="YYYY-MM-DD" required autoComplete="off" value={userRegisteration.dateofbirth} onChange={handleInput} name="dateofbirth" id="dateofbirth"/>
-                                    </> 
-                            }
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colSpan="2">Details</td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                <>
-
-                                </>:
-                                <>
-                                    <label htmlFor="fullname">Full Name </label>
-                                </> 
-                            }
-                        </td>
-                        <td>
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
-
-                                    </> : 
-                                    <>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="2">Details</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="fullname">Full Name </label>
+                                    </td>
+                                    <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.name} onChange={handleInput} name="name" id="name"/>
-                                    </>
-                            }
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
-                                        <label htmlFor="name">Name of the Organization </label>
-                                    </>:
-                                    <>
-                                        
-                                    </> 
-                            }
-                        </td>
-                        <td>
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
-                                        <input type="text" required autoComplete="off" value={userRegisteration.name} onChange={handleInput} name="name" id="name"/>
-                                    </> : 
-                                    <>
-
-                                    </>
-                            }
-                        </td>
-                    </tr>    
-                    <tr>
-                        <td align="right">
-                            <label htmlFor="phone">Phone Number </label>
-                        </td>
-                        <td>
-                            <input type="number" required autoComplete="off" value={userRegisteration.phone} onChange={handleInput} name="phone" id="phone"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            <label htmlFor="country">Country </label>
-                        </td>
-                        <td>
-                            <input type="text" required autoComplete="off" value={userRegisteration.country} onChange={handleInput} name="country" id="country"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            <label htmlFor="city">City </label>
-                        </td>
-                        <td>
-                            <input type="text" required autoComplete="off" value={userRegisteration.city} onChange={handleInput} name="city" id="city"/>
-                        </td>
-                    </tr> 
-                    <tr>
-                        <td align="right">
-                            <label htmlFor="address">Address </label>
-                        </td>
-                        <td>
-                            <input type="Address" autoComplete="off" value={userRegisteration.address} onChange={handleInput} name="address" id="address"/>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
-
-                                    </> : 
-                                    <>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="phone">Phone Number </label>
+                                    </td>
+                                    <td>
+                                        <input type="number" required autoComplete="off" value={userRegisteration.phone} onChange={handleInput} name="phone" id="phone"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="country">Country </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.country} onChange={handleInput} name="country" id="country"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="city">City </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.city} onChange={handleInput} name="city" id="city"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="address">Address </label>
+                                    </td>
+                                    <td>
+                                        <input type="Address" autoComplete="off" value={userRegisteration.address} onChange={handleInput} name="address" id="address"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
                                         <label htmlFor="cnic">CNIC no :-</label>
-                                    </> 
-                            }
-                        </td>
-                        <td>
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
-
-                                    </>: 
-                                    <>
+                                    </td>
+                                    <td>
                                         <input type="number" required autoComplete="off" value={userRegisteration.cnic} onChange={handleInput} name="cnic" id="cnic"/>
-                                    </> 
-                            }
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                <>
-                                    <label htmlFor="website">WebSite </label>
-                                </>:
-                                <>
-
-                                </>
-                            }
-                        </td>
-                        <td>
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
+                                    </td>
+                                </tr>  
+                            </>:
+                        (userRegisteration.role === "housemate") ?
+                            <>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="email">E-mail Address </label>
+                                    </td>
+                                    <td>
+                                        <input type="email" required autoComplete="off" value={userRegisteration.email} onChange={handleInput} name="email" id="email"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="gender">Gender </label>
+                                    </td>
+                                    <td>
+                                        <input required type="radio" autoComplete="off" value="male" onChange={handleInput} name="gender" id="male"/><label>Male</label>
+                                        <input required type="radio" autoComplete="off" value="female" onChange={handleInput} name="gender" id="female"/><label>Female</label>
+                                        <input required type="radio" autoComplete="off" value="other" onChange={handleInput} name="gender" id="other"/><label>Other</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="dateofbirth">Date of Birth </label>
+                                    </td>
+                                    <td>
+                                        <input type="date" format="YYYY-MM-DD" required autoComplete="off" value={userRegisteration.dateofbirth} onChange={handleInput} name="dateofbirth" id="dateofbirth"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="2">Details</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="fullname">Full Name </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.name} onChange={handleInput} name="name" id="name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="phone">Phone Number </label>
+                                    </td>
+                                    <td>
+                                        <input type="number" required autoComplete="off" value={userRegisteration.phone} onChange={handleInput} name="phone" id="phone"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="country">Country </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.country} onChange={handleInput} name="country" id="country"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="city">City </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.city} onChange={handleInput} name="city" id="city"/>
+                                    </td>
+                                </tr> 
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="address">Address </label>
+                                    </td>
+                                    <td>
+                                        <input type="Address" autoComplete="off" value={userRegisteration.address} onChange={handleInput} name="address" id="address"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="cnic">CNIC no :-</label>
+                                    </td>
+                                    <td>
+                                        <input type="number" required autoComplete="off" value={userRegisteration.cnic} onChange={handleInput} name="cnic" id="cnic"/>
+                                    </td>
+                                </tr> 
+                            </>:
+                        (userRegisteration.role === "manager") ?
+                            <>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="email">E-mail Address </label>
+                                    </td>
+                                    <td>
+                                        <input type="email" required autoComplete="off" value={userRegisteration.email} onChange={handleInput} name="email" id="email"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="gender">Gender </label>
+                                    </td>
+                                    <td>
+                                        <input required type="radio" autoComplete="off" value="male" onChange={handleInput} name="gender" id="male"/><label>Male</label>
+                                        <input required type="radio" autoComplete="off" value="female" onChange={handleInput} name="gender" id="female"/><label>Female</label>
+                                        <input required type="radio" autoComplete="off" value="other" onChange={handleInput} name="gender" id="other"/><label>Other</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="dateofbirth">Date of Birth </label>
+                                    </td>
+                                    <td>
+                                        <input type="date" format="YYYY-MM-DD" required autoComplete="off" value={userRegisteration.dateofbirth} onChange={handleInput} name="dateofbirth" id="dateofbirth"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="2">Details</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="fullname">Full Name </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.name} onChange={handleInput} name="name" id="name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="phone">Phone Number </label>
+                                    </td>
+                                    <td>
+                                        <input type="number" required autoComplete="off" value={userRegisteration.phone} onChange={handleInput} name="phone" id="phone"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="country">Country </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.country} onChange={handleInput} name="country" id="country"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="city">City </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.city} onChange={handleInput} name="city" id="city"/>
+                                    </td>
+                                </tr> 
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="address">Address </label>
+                                    </td>
+                                    <td>
+                                        <input type="Address" autoComplete="off" value={userRegisteration.address} onChange={handleInput} name="address" id="address"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="cnic">CNIC no :-</label>
+                                    </td>
+                                    <td>
+                                        <input type="number" required autoComplete="off" value={userRegisteration.cnic} onChange={handleInput} name="cnic" id="cnic"/>
+                                    </td>
+                                </tr> 
+                            </>:
+                        (userRegisteration.role === "ngo") ?
+                            <>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="email">E-mail Address </label>
+                                    </td>
+                                    <td>
+                                        <input type="email" required autoComplete="off" value={userRegisteration.email} onChange={handleInput} name="email" id="email"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colSpan="2">Details</td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="name">Name of the Organization </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.name} onChange={handleInput} name="name" id="name"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="phone">Phone Number </label>
+                                    </td>
+                                    <td>
+                                        <input type="number" required autoComplete="off" value={userRegisteration.phone} onChange={handleInput} name="phone" id="phone"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="country">Country </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.country} onChange={handleInput} name="country" id="country"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="city">City </label>
+                                    </td>
+                                    <td>
+                                        <input type="text" required autoComplete="off" value={userRegisteration.city} onChange={handleInput} name="city" id="city"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="address">Address </label>
+                                    </td>
+                                    <td>
+                                        <input type="Address" autoComplete="off" value={userRegisteration.address} onChange={handleInput} name="address" id="address"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
+                                        <label htmlFor="website">WebSite </label>
+                                    </td>
+                                    <td>
                                         <input type="website" autoComplete="off" value={userRegisteration.website} onChange={handleInput} name="website" id="website"/>
-                                    </> : 
-                                    <>
-
-                                    </> 
-                            }
-                        </td>
-                    </tr>
-                    <tr>
-                        <td align="right">
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                    <>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td align="right">
                                         <label htmlFor="description">Description </label>
-                                    </>:
-                                    <>
+                                    </td>
+                                    <td>
+                                        <textarea rows="5" cols="50"  required autoComplete="off" value={userRegisteration.description} onChange={handleInput} name="description" id="description"/>
+                                    </td>
+                                </tr>
+                            </>:
+                            <>
 
-                                    </> 
-                            }
-                        </td>
-                        <td> 
-                            { 
-                                (userRegisteration.role === "ngo") ? 
-                                <>
-                                    <textarea rows="5" cols="50"  required autoComplete="off" value={userRegisteration.description} onChange={handleInput} name="description" id="description"/>
-                                </> : 
-                                <>
-
-                                </> 
-                            }
-                        </td>
-                    </tr>
+                            </>
+                    }
                     <tr>
                         <td align="right">
                             <label htmlFor="image">Profile Image </label>
