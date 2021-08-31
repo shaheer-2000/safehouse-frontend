@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import Select from 'react-select'
 
-const clickusertype = "Manager";
+const clickusertype = "Admin";
 
 const admintype = [
     {
@@ -98,15 +98,15 @@ const RegistrationForm = () => {
     
     
     return (
-        <React.Fragment>
             <form action="" onSubmit={handleSubmit}>
                 <table>
+                <tbody>
                     <tr>
                         <td colSpan="2">User</td>
                     </tr>
                     <tr>
                         <td align="right">
-                            <label htmlFor="username">Username </label>
+                            <label >Username </label>
                         </td>
                         <td>
                             <input type="text" required autoComplete="off" value={userRegisteration.username} onChange={handleInput} name="username" id="username"/>
@@ -114,43 +114,42 @@ const RegistrationForm = () => {
                     </tr>
                     <tr>
                         <td align="right">
-                            <label htmlFor="password">Password </label>
+                            <label >Password </label>
                         </td>
-                        <td>
-                            <input type="password" required autoComplete="off" value={userRegisteration.password} onChange={handleInput} name="password" id="password"/>
-                        </td>
+                    <td>
+                        <input type="password" required autoComplete="off" value={userRegisteration.password} onChange={handleInput} name="password" id="password"/>
+                    </td>
                     </tr>
                     {
                         (clickusertype === "NGO") ? 
-                            <></>: 
+                        <></>: 
                         <tr>
                             <td align="right">
-                                <label htmlFor="role">Role </label>
+                                <label >Role </label>
                             </td>
                             <td>
-                                {
-                                    (clickusertype === "Admin") ? 
-                                        <>
-                                            <Select required value={admintype.find(x => x.value === usertype)} onChange={handleusertype} options={admintype} getOptionLabel= {option => option.name}/>
-                                        </> : 
-                                        (clickusertype === "Manager") ? 
-                                            <>
-                                                <Select required value={managertype.find(x => x.value === usertype)} onChange={handleusertype} options={managertype} getOptionLabel= {option => option.name}/>
-                                            </> : 
-                                            <>
+                            {
+                                (clickusertype === "Admin") ? 
+                                <>
+                                    <Select required value={admintype.find(x => x.value === usertype)} onChange={handleusertype} options={admintype} getOptionLabel= {option => option.name}/>
+                                </> : 
+                                (clickusertype === "Manager") ? 
+                                <>
+                                    <Select required value={managertype.find(x => x.value === usertype)} onChange={handleusertype} options={managertype} getOptionLabel= {option => option.name}/>
+                                </> : 
+                                <>
 
-                                            </> 
-                                }
+                                </> 
+                            }
                             </td>
                         </tr>
                     }
-
                     {
                         (userRegisteration.role === "homeless") ? 
                             <>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="gender">Gender </label>
+                                        <label >Gender </label>
                                     </td>
                                     <td>
                                         <input required type="radio" autoComplete="off" value="male" onChange={handleInput} name="gender" id="male"/><label>Male</label>
@@ -160,7 +159,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="dateofbirth">Date of Birth </label>
+                                        <label >Date of Birth </label>
                                     </td>
                                     <td>
                                         <input type="date" format="YYYY-MM-DD" required autoComplete="off" value={userRegisteration.dateofbirth} onChange={handleInput} name="dateofbirth" id="dateofbirth"/>
@@ -171,7 +170,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="fullname">Full Name </label>
+                                        <label >Full Name </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.name} onChange={handleInput} name="name" id="name"/>
@@ -179,7 +178,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="phone">Phone Number </label>
+                                        <label >Phone Number </label>
                                     </td>
                                     <td>
                                         <input type="number" required autoComplete="off" value={userRegisteration.phone} onChange={handleInput} name="phone" id="phone"/>
@@ -187,7 +186,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="country">Country </label>
+                                        <label >Country </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.country} onChange={handleInput} name="country" id="country"/>
@@ -195,7 +194,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="city">City </label>
+                                        <label >City </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.city} onChange={handleInput} name="city" id="city"/>
@@ -203,7 +202,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="address">Address </label>
+                                        <label >Address </label>
                                     </td>
                                     <td>
                                         <input type="Address" autoComplete="off" value={userRegisteration.address} onChange={handleInput} name="address" id="address"/>
@@ -211,18 +210,18 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="cnic">CNIC no :-</label>
+                                        <label >CNIC no :-</label>
                                     </td>
                                     <td>
                                         <input type="number" required autoComplete="off" value={userRegisteration.cnic} onChange={handleInput} name="cnic" id="cnic"/>
                                     </td>
-                                </tr>  
+                                </tr>    
                             </>:
                         (userRegisteration.role === "housemate") ?
                             <>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="email">E-mail Address </label>
+                                        <label >E-mail Address </label>
                                     </td>
                                     <td>
                                         <input type="email" required autoComplete="off" value={userRegisteration.email} onChange={handleInput} name="email" id="email"/>
@@ -230,7 +229,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="gender">Gender </label>
+                                        <label >Gender </label>
                                     </td>
                                     <td>
                                         <input required type="radio" autoComplete="off" value="male" onChange={handleInput} name="gender" id="male"/><label>Male</label>
@@ -240,7 +239,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="dateofbirth">Date of Birth </label>
+                                        <label >Date of Birth </label>
                                     </td>
                                     <td>
                                         <input type="date" format="YYYY-MM-DD" required autoComplete="off" value={userRegisteration.dateofbirth} onChange={handleInput} name="dateofbirth" id="dateofbirth"/>
@@ -251,7 +250,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="fullname">Full Name </label>
+                                        <label >Full Name </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.name} onChange={handleInput} name="name" id="name"/>
@@ -259,7 +258,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="phone">Phone Number </label>
+                                        <label >Phone Number </label>
                                     </td>
                                     <td>
                                         <input type="number" required autoComplete="off" value={userRegisteration.phone} onChange={handleInput} name="phone" id="phone"/>
@@ -267,7 +266,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="country">Country </label>
+                                        <label >Country </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.country} onChange={handleInput} name="country" id="country"/>
@@ -275,7 +274,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="city">City </label>
+                                        <label >City </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.city} onChange={handleInput} name="city" id="city"/>
@@ -283,7 +282,7 @@ const RegistrationForm = () => {
                                 </tr> 
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="address">Address </label>
+                                        <label >Address </label>
                                     </td>
                                     <td>
                                         <input type="Address" autoComplete="off" value={userRegisteration.address} onChange={handleInput} name="address" id="address"/>
@@ -291,18 +290,18 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="cnic">CNIC no :-</label>
+                                        <label >CNIC no :-</label>
                                     </td>
                                     <td>
                                         <input type="number" required autoComplete="off" value={userRegisteration.cnic} onChange={handleInput} name="cnic" id="cnic"/>
                                     </td>
-                                </tr> 
+                                </tr>
                             </>:
                         (userRegisteration.role === "manager") ?
                             <>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="email">E-mail Address </label>
+                                        <label >E-mail Address </label>
                                     </td>
                                     <td>
                                         <input type="email" required autoComplete="off" value={userRegisteration.email} onChange={handleInput} name="email" id="email"/>
@@ -310,7 +309,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="gender">Gender </label>
+                                        <label >Gender </label>
                                     </td>
                                     <td>
                                         <input required type="radio" autoComplete="off" value="male" onChange={handleInput} name="gender" id="male"/><label>Male</label>
@@ -320,7 +319,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="dateofbirth">Date of Birth </label>
+                                        <label >Date of Birth </label>
                                     </td>
                                     <td>
                                         <input type="date" format="YYYY-MM-DD" required autoComplete="off" value={userRegisteration.dateofbirth} onChange={handleInput} name="dateofbirth" id="dateofbirth"/>
@@ -331,7 +330,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="fullname">Full Name </label>
+                                        <label >Full Name </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.name} onChange={handleInput} name="name" id="name"/>
@@ -339,7 +338,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="phone">Phone Number </label>
+                                        <label >Phone Number </label>
                                     </td>
                                     <td>
                                         <input type="number" required autoComplete="off" value={userRegisteration.phone} onChange={handleInput} name="phone" id="phone"/>
@@ -347,7 +346,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="country">Country </label>
+                                        <label >Country </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.country} onChange={handleInput} name="country" id="country"/>
@@ -355,7 +354,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="city">City </label>
+                                        <label >City </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.city} onChange={handleInput} name="city" id="city"/>
@@ -363,7 +362,7 @@ const RegistrationForm = () => {
                                 </tr> 
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="address">Address </label>
+                                        <label >Address </label>
                                     </td>
                                     <td>
                                         <input type="Address" autoComplete="off" value={userRegisteration.address} onChange={handleInput} name="address" id="address"/>
@@ -371,7 +370,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="cnic">CNIC no :-</label>
+                                        <label >CNIC no :-</label>
                                     </td>
                                     <td>
                                         <input type="number" required autoComplete="off" value={userRegisteration.cnic} onChange={handleInput} name="cnic" id="cnic"/>
@@ -382,7 +381,7 @@ const RegistrationForm = () => {
                             <>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="email">E-mail Address </label>
+                                        <label >E-mail Address </label>
                                     </td>
                                     <td>
                                         <input type="email" required autoComplete="off" value={userRegisteration.email} onChange={handleInput} name="email" id="email"/>
@@ -393,7 +392,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="name">Name of the Organization </label>
+                                        <label >Name of the Organization </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.name} onChange={handleInput} name="name" id="name"/>
@@ -401,7 +400,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="phone">Phone Number </label>
+                                        <label >Phone Number </label>
                                     </td>
                                     <td>
                                         <input type="number" required autoComplete="off" value={userRegisteration.phone} onChange={handleInput} name="phone" id="phone"/>
@@ -409,7 +408,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="country">Country </label>
+                                        <label >Country </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.country} onChange={handleInput} name="country" id="country"/>
@@ -417,7 +416,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="city">City </label>
+                                        <label >City </label>
                                     </td>
                                     <td>
                                         <input type="text" required autoComplete="off" value={userRegisteration.city} onChange={handleInput} name="city" id="city"/>
@@ -425,7 +424,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="address">Address </label>
+                                        <label >Address </label>
                                     </td>
                                     <td>
                                         <input type="Address" autoComplete="off" value={userRegisteration.address} onChange={handleInput} name="address" id="address"/>
@@ -433,7 +432,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="website">WebSite </label>
+                                        <label >WebSite </label>
                                     </td>
                                     <td>
                                         <input type="website" autoComplete="off" value={userRegisteration.website} onChange={handleInput} name="website" id="website"/>
@@ -441,7 +440,7 @@ const RegistrationForm = () => {
                                 </tr>
                                 <tr>
                                     <td align="right">
-                                        <label htmlFor="description">Description </label>
+                                        <label >Description </label>
                                     </td>
                                     <td>
                                         <textarea rows="5" cols="50"  required autoComplete="off" value={userRegisteration.description} onChange={handleInput} name="description" id="description"/>
@@ -449,12 +448,11 @@ const RegistrationForm = () => {
                                 </tr>
                             </>:
                             <>
-
                             </>
                     }
                     <tr>
                         <td align="right">
-                            <label htmlFor="image">Profile Image </label>
+                            <label >Profile Image </label>
                         </td>
                         <td>
                             <input type="file" required autoComplete="off" value={userRegisteration.image} onChange={handleInput} name="image" id="image"/>
@@ -468,10 +466,10 @@ const RegistrationForm = () => {
                             <button type="submit">Submit</button>
                         </td>
                     </tr>
-
+                </tbody>
                 </table>
+                    
             </form>
-        </React.Fragment>
     )
 }
 
