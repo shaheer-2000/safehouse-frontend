@@ -1,5 +1,6 @@
 import React from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
+import CrowdFundingRegistrationForm from '../../forms/CrowdFundingRegistrationForm';
 
 const Funding = (props) => {
 
@@ -12,9 +13,7 @@ const Funding = (props) => {
         </div>
         <div>
             <Switch>
-                {/* <Route path={`/dashboard/users/managers`} Component={Managers}></Route>
-                <Route exact path={`/dashboard/users/housemates`} Component={HouseMates}></Route>
-                <Route exact path={`/dashboard/users/homeless`} Component={Homeless}></Route> */}
+                <Route path={"/dashboard/funding/requestFunds"} component={CrowdFundingRegistrationForm}></Route>
             </Switch>
         </div>
     </div>)

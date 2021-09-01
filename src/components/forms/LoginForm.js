@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useHistory } from 'react-router';
+
+let instance = axios.create({
+    baseURL: 'http://safehouse-weavy.herokuapp.com',
+    headers: {
+        post: {
+            'Content-Type': 'application/json'
+        }
+    }
+})
 
 const LoginForm = () => {
     const [username, setusername] = useState('');
@@ -14,14 +24,27 @@ const LoginForm = () => {
         elementButton.classList.remove('bg-purple-800', 'hover:bg-purple-600', 'hover:shadow-md');
         elementButton.classList.add('bg-gray-400', 'pointer-events-none');
 
-        const loginData = {username, password}
-
-        /* authenticate login data */
-        await setTimeout(() => {
-            console.log(loginData);
-            
+        try {
+            let res = await instance.post('/v1/login/', {
+                username,
+                password
+            })
+            console.log(res);
             history.push("/dashboard");
-        }, 3000);
+
+            console.log(await instance.get(`/api/v1/users/username/${username}`,
+                {
+                    headers: {
+                        "Authorization": `Bearer ${res.data.token}`
+                    }
+                }
+            ));
+        }
+        catch (e) {
+            elementButton.classList.add('bg-purple-800', 'hover:bg-purple-600', 'hover:shadow-md');
+            elementButton.classList.remove('bg-gray-400', 'pointer-events-none');
+            console.log(e);
+        }
     }
 
     return (

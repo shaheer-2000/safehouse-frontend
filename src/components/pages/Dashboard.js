@@ -35,33 +35,32 @@ const Dashboard = (props) => {
                                 (user === 'admin') ?
                                 <>
                                     <div className="mt-6 flex flex-col">
-                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected hover:bg-opacity-100"><FaUsers className="mr-4 inline-block"/>Users</NavLink>
+                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4 inline-block"/>Users</NavLink>
                                         <NavLink to={"/dashboard/jobs"} className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4 inline-block" />Jobs</NavLink>
                                         <NavLink to={"/dashboard/training"} className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4 inline-block" />Training</NavLink>
-                                        <NavLink to={"/dashboard/funding"} className="navlink" activeClassName="bg-selected"><FaHandHoldingUsd className="mr-4 inline-block" />Fundings</NavLink>
                                         <NavLink to={"/dashboard/insurance"} className="navlink" activeClassName="bg-selected"><FaUserShield className="mr-4 inline-block" />Insurance</NavLink>
                                         <NavLink to={"/dashboard/houses"} className="navlink" activeClassName="bg-selected"><BsHouseFill className="mr-4 inline-block" />Houses</NavLink>
                                         <NavLink to={"/dashboard/rehablitation"} className="navlink" activeClassName="bg-selected"><FaHandHoldingHeart className="mr-4 inline-block" />Rehablitation</NavLink>
                                         <NavLink to={"/dashboard/applications"} className="navlink" activeClassName="bg-selected"><FaClipboardCheck className="mr-4 inline-block" />Applications</NavLink>
                                     </div>
                                 </> :
+                                (user === 'ngo') ?
+                                <>
+                                    <div className="mt-6 flex flex-col">
+                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4 inline-block"/>Users</NavLink>
+                                        <NavLink to={"/dashboard/funding"} className="navlink" activeClassName="bg-selected"><FaHandHoldingUsd className="mr-4" />Fundings</NavLink>
+                                    </div>
+                                </> :
                                 (user === 'manager') ?
                                 <>
                                     <div className="mt-6 flex flex-col">
-                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected hover:bg-opacity-100"><FaUsers className="mr-4"/>Users</NavLink>
-                                        <NavLink to={"/dashboard/jobs"} className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4" />Jobs</NavLink>
-                                        <NavLink to={"/dashboard/training"} className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4" />Training</NavLink>
-                                        <NavLink to={"/dashboard/funding"} className="navlink" activeClassName="bg-selected"><FaHandHoldingUsd className="mr-4" />Fundings</NavLink>
-                                        <NavLink to={"/dashboard/insurance"} className="navlink" activeClassName="bg-selected"><FaUserShield className="mr-4" />Insurance</NavLink>
-                                        <NavLink to={"/dashboard/houses"} className="navlink" activeClassName="bg-selected"><BsHouseFill className="mr-4" />Houses</NavLink>
-                                        <NavLink to={"/dashboard/rehablitation"} className="navlink" activeClassName="bg-selected"><FaHandHoldingHeart className="mr-4" />Rehablitation</NavLink>
-                                        <NavLink to={"/dashboard/applications"} className="navlink" activeClassName="bg-selected"><FaClipboardCheck className="mr-4 inline-block" />Applications</NavLink>
+                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4"/>Users</NavLink>
                                     </div>
                                 </> :
                                 (user === 'housemate') ?
                                 <>
                                     <div className="mt-6 flex flex-col">
-                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected hover:bg-opacity-100"><FaUsers className="mr-4"/>Homeless</NavLink>
+                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4"/>Homeless</NavLink>
                                         <NavLink to={"/dashboard/jobs"} className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4" />Jobs</NavLink>
                                         <NavLink to={"/dashboard/training"} className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4" />Training</NavLink>
                                         <NavLink to={"/dashboard/funding"} className="navlink" activeClassName="bg-selected"><FaHandHoldingUsd className="mr-4" />Fundings</NavLink>
