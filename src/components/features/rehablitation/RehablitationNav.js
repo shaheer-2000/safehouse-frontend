@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 import RehabPlansRegistrationForm from '../../forms/RehabPlansRegistrationForm';
 
-const Rehablitation = (props) => {
+const RehablitationNav = (props) => {
 
     return (
     <div className="w-full h-full flex flex-col bg-secondary">
@@ -24,4 +24,4 @@ const Rehablitation = (props) => {
     </div>)
 }
 
-export default Rehablitation;
+export default RehablitationNav;

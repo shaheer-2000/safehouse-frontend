@@ -1,8 +1,7 @@
 import React from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
-import CrowdFundingRegistrationForm from '../../forms/CrowdFundingRegistrationForm';
 
-const Funding = (props) => {
+const FundingNav = (props) => {
 
     return (
     <div className="w-full h-full flex flex-col bg-secondary">
@@ -13,10 +12,10 @@ const Funding = (props) => {
         </div>
         <div>
             <Switch>
-                <Route path={"/dashboard/funding/requestFunds"} component={CrowdFundingRegistrationForm}></Route>
+                {/* <Route path={"/dashboard/funding/requestFunds"} component={CrowdFundingRegistrationForm}></Route> */}
             </Switch>
         </div>
     </div>)
 }
 
-export default Funding;
+export default FundingNav;

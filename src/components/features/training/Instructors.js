@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Jobs = () => {
+const Instructors = () => {
     return (
     <>
     </>
     )
 }
 
-export default Jobs;
+export default Instructors;

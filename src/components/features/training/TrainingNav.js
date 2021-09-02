@@ -1,17 +1,17 @@
 import React from 'react';
 import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 
-const Training = (props) => {
+const TrainingNav = (props) => {
 
     return (
     <div className="w-full h-full flex flex-col bg-secondary">
         <div className="h-20 px-10 border-b-2 border-gray-300 bg-white flex flex-row items-end">
-            <div>
+            <div className="border-r-2 border-gray-300">
                 <NavLink to={"/dashboard/training/workshops"} className="tabLink" activeClassName="border-b-2 border-yellow-600">Workshops</NavLink>
                 <NavLink to={"/dashboard/training/instructors"} className="tabLink" activeClassName="border-b-2 border-yellow-600">Instructors</NavLink>
             </div>
             <div>
-                {/* +workshop */}
+                <NavLink to={"/dashboard/training/addworkshop"} className="tabLink" activeClassName="border-b-2 border-yellow-600">+Workshop</NavLink>
             </div>
         </div>
         <div>
@@ -24,4 +24,4 @@ const Training = (props) => {
     </div>)
 }
 
-export default Training;
+export default TrainingNav;

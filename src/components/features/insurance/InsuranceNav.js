@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 
-const Insurance = (props) => {
+const InsuranceNav = (props) => {
 
     return (
     <div className="w-full h-full flex flex-col bg-secondary">
@@ -11,7 +11,9 @@ const Insurance = (props) => {
                 <NavLink to={"/dashboard/insurance/agencies"} className="tabLink" activeClassName="border-b-2 border-yellow-600">Agencies</NavLink>
             </div>
             <div>
-                {/* +packages */}
+                {
+                <NavLink to={"/dashboard/insurance/addpackage"} className="tabLink" activeClassName="border-b-2 border-yellow-600">+Package</NavLink>
+                }
             </div>
         </div>
         <div>
@@ -23,4 +25,4 @@ const Insurance = (props) => {
     </div>)
 }
 
-export default Insurance;
+export default InsuranceNav;

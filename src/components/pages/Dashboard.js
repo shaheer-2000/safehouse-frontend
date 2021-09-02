@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import { useHistory, Redirect} from 'react-router';
-import Users from '../features/users/Users';
-import Jobs from '../features/jobs/Jobs';
-import Training from '../features/training/Training';
-import Funding from '../features/funding/Funding';
-import Insurance from '../features/insurance/Insurance';
-import Houses from '../features/houses/Houses';
+import UsersNav from '../features/users/UsersNav';
+import JobsNav from '../features/jobs/JobsNav';
+import TrainingNav from '../features/training/TrainingNav';
+import FundingNav from '../features/funding/FundingNav';
+import InsuranceNav from '../features/insurance/InsuranceNav';
+import HousesNav from '../features/houses/HousesNav';
 import Profile from '../features/profile/Profile';
-import Rehablitation from '../features/rehablitation/Rehablitation';
-import Applications from '../features/applications/Applications';
+import RehablitationNav from '../features/rehablitation/RehablitationNav';
+import ApplicationsNav from '../features/applications/ApplicationsNav';
 import { BsHouseFill, BsPeopleCircle } from 'react-icons/bs';
 import { FaUsers, FaBriefcase, FaChalkboardTeacher, FaHandHoldingUsd, FaUserShield, FaHandHoldingHeart, FaClipboardCheck } from 'react-icons/fa';
 
@@ -28,7 +28,7 @@ const Dashboard = () => {
     const history = useHistory();
 
     if (!loggedIn) {
-        alert("Login first!");
+        alert("Are you even authorized 🤔?");
         return <Redirect to="/" />
     }
 
@@ -101,15 +101,15 @@ const Dashboard = () => {
                             <Redirect exact from="/dashboard" to="/dashboard/profile" /> :
                             <Redirect exact from="/dashboard" to="/dashboard/users" />
                         }
-                        <Route path={"/dashboard/users"} component={() => <Users user={user} />}></Route>
-                        <Route path={"/dashboard/jobs"} component={() => <Jobs user={user} />}></Route>
-                        <Route path={"/dashboard/training"} component={() => <Training user={user} />}></Route>
-                        <Route path={"/dashboard/funding"} component={() => <Funding user={user} />}></Route>
-                        <Route path={"/dashboard/houses"} component={() => <Houses user={user} />}></Route>
-                        <Route path={"/dashboard/rehablitation"} component={() => <Rehablitation user={user} />}></Route>
-                        <Route path={"/dashboard/insurance"} component={() => <Insurance user={user} />}></Route>
+                        <Route path={"/dashboard/users"} component={() => <UsersNav user={user} />}></Route>
+                        <Route path={"/dashboard/jobs"} component={() => <JobsNav user={user} />}></Route>
+                        <Route path={"/dashboard/training"} component={() => <TrainingNav user={user} />}></Route>
+                        <Route path={"/dashboard/funding"} component={() => <FundingNav user={user} />}></Route>
+                        <Route path={"/dashboard/houses"} component={() => <HousesNav user={user} />}></Route>
+                        <Route path={"/dashboard/rehablitation"} component={() => <RehablitationNav user={user} />}></Route>
+                        <Route path={"/dashboard/insurance"} component={() => <InsuranceNav user={user} />}></Route>
                         <Route path={"/dashboard/profile"} component={() => <Profile user={user} />}></Route>
-                        <Route path={"/dashboard/applications"} component={() => <Applications user={user} />}></Route>
+                        <Route path={"/dashboard/applications"} component={() => <ApplicationsNav user={user} />}></Route>
                     </Switch>
                 </div>
             </div>

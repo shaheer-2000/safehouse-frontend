@@ -5,7 +5,7 @@ import Ngos from './Ngos';
 import HouseMates from './HouseMates';
 import Homeless from './Homeless';
 
-const Users = (props) => {
+const UsersNav = (props) => {
 
     return (
     <div className="w-full h-full flex flex-col bg-secondary">
@@ -28,4 +28,4 @@ const Users = (props) => {
     </div>)
 }
 
-export default Users;
+export default UsersNav;

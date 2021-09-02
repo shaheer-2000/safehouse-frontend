@@ -6,7 +6,7 @@ import Jobs from './Jobs';
 import Training from './Training';
 import Insurance from './Insurance';
 
-const Users = (props) => {
+const ApplicationsNav = (props) => {
 
     return (
     <div className="w-full h-full flex flex-col bg-secondary">
@@ -30,4 +30,4 @@ const Users = (props) => {
     </div>)
 }
 
-export default Users;
+export default ApplicationsNav;

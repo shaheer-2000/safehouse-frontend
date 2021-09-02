@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Jobs = () => {
+const Agencies = () => {
     return (
     <>
     </>
     )
 }
 
-export default Jobs;
+export default Agencies;
