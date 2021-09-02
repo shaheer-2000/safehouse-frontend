@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 import HouseRegistrationForm from '../../forms/HouseRegistrationForm';
 
 const Houses = (props) => {
@@ -16,6 +16,7 @@ const Houses = (props) => {
         </div>
         <div>
             <Switch>
+                <Redirect exact from="/dashboard/houses" to="/dashboard/houses/houselist" />
                 {/* <Route path={"/dashboard/houses/addhouse"} component={HouseRegistrationForm}></Route> */}
             </Switch>
         </div>

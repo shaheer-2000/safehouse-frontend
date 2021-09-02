@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Switch, Route, NavLink } from 'react-router-dom';
-import { useHistory} from 'react-router';
+import { useHistory, Redirect} from 'react-router';
 import Users from '../features/users/Users';
 import Jobs from '../features/jobs/Jobs';
 import Training from '../features/training/Training';
@@ -13,13 +13,23 @@ import Applications from '../features/applications/Applications';
 import { BsHouseFill, BsPeopleCircle } from 'react-icons/bs';
 import { FaUsers, FaBriefcase, FaChalkboardTeacher, FaHandHoldingUsd, FaUserShield, FaHandHoldingHeart, FaClipboardCheck } from 'react-icons/fa';
 
-const Dashboard = (props) => {
-    const history = useHistory();
-    const user = props.user;
+const isLoggedIn = () => {
+    let loggedIn = localStorage.getItem('loggedIn');
+    return JSON.parse(loggedIn);
+}
 
-    if (!props.authorized) {
-        alert("Invalid ID or password!");
-        history.push('/');
+const getType = () => {
+    return localStorage.getItem('type');
+}
+
+const Dashboard = () => {
+    const loggedIn = isLoggedIn();
+    const user = getType();
+    const history = useHistory();
+
+    if (!loggedIn) {
+        alert("Login first!");
+        return <Redirect to="/" />
     }
 
     return (
@@ -86,6 +96,11 @@ const Dashboard = (props) => {
                 </div>
                 <div className="w-full h-full">
                     <Switch>
+                        {
+                            (user === 'homeless') ?
+                            <Redirect exact from="/dashboard" to="/dashboard/profile" /> :
+                            <Redirect exact from="/dashboard" to="/dashboard/users" />
+                        }
                         <Route path={"/dashboard/users"} component={() => <Users user={user} />}></Route>
                         <Route path={"/dashboard/jobs"} component={() => <Jobs user={user} />}></Route>
                         <Route path={"/dashboard/training"} component={() => <Training user={user} />}></Route>

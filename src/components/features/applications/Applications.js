@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import Funding from './Funding';
 import Jobs from './Jobs';
@@ -19,6 +20,7 @@ const Users = (props) => {
         </div>
         <div>
             <Switch>
+                <Redirect exact from="/dashboard/applications" to="/dashboard/applications/funding" />
                 <Route path={"/dashboard/applications/funding"} component={Funding}></Route>
                 <Route exact path={"/dashboard/applications/jobs"} component={Jobs}></Route>
                 <Route exact path={"/dashboard/applications/training"} component={Training}></Route>

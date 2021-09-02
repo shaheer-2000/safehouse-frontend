@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 
 const Insurance = (props) => {
 
@@ -16,6 +16,7 @@ const Insurance = (props) => {
         </div>
         <div>
             <Switch>
+                <Redirect exact from="/dashboard/insurance" to="/dashboard/insurance/packages" />
                 {/* <Route path={"/dashboard/insurance/addagency"} component={InsuranceAgencyRegistrationForm}></Route> */}
             </Switch>
         </div>

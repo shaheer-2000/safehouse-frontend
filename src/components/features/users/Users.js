@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import Ngos from './Ngos';
 import HouseMates from './HouseMates';
@@ -18,6 +19,7 @@ const Users = (props) => {
         </div>
         <div>
             <Switch>
+                <Redirect exact from="/dashboard/users" to="/dashboard/users/ngos" />
                 <Route path={"/dashboard/users/ngos"} component={Ngos}></Route>
                 <Route exact path={"/dashboard/users/housemates"} component={HouseMates}></Route>
                 <Route exact path={"/dashboard/users/homeless"} component={Homeless}></Route>

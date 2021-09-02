@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router';
 import { Switch, Route, NavLink } from 'react-router-dom';
 import JobsListing from './JobsListing';
 import Employers from './Employers';
@@ -18,7 +19,8 @@ const Jobs = (props) => {
         </div>
         <div>
             <Switch>
-                <Route path={"/dashboard/jobs/joblist"} component={JobsListing}></Route>
+                <Redirect exact from="/dashboard/jobs" to="/dashboard/jobs/joblist" />
+                <Route path="/dashboard/jobs/joblist" component={JobsListing}></Route>
             </Switch>
         </div>
     </div>)

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, NavLink } from 'react-router-dom';
+import { Switch, Route, NavLink, Redirect } from 'react-router-dom';
 import RehabPlansRegistrationForm from '../../forms/RehabPlansRegistrationForm';
 
 const Rehablitation = (props) => {
@@ -17,6 +17,7 @@ const Rehablitation = (props) => {
         </div>
         <div>
             <Switch>
+                <Redirect exact from="/dashboard/rehablitation" to="/dashboard/rehablitation/plans" />
                 <Route exact path={"/dashboard/rehablitation/addplan"} component={RehabPlansRegistrationForm}></Route>
             </Switch>
         </div>

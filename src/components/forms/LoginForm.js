@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router';
+import { Redirect } from 'react-router-dom';
 
 let instance = axios.create({
     baseURL: 'http://safehouse-weavy.herokuapp.com',
@@ -14,6 +15,9 @@ let instance = axios.create({
 const LoginForm = () => {
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
+    const [loggedIn, setloggedIn] = useState(false);
+    const [token, settoken] = useState('');
+    const [type, settype] = useState('');
 
     const history = useHistory();
 
@@ -30,22 +34,32 @@ const LoginForm = () => {
                 password
             })
             console.log(res);
-            history.push("/dashboard");
+            setloggedIn(true);
+            settoken(res.data.token);
 
-            console.log(await instance.get(`/api/v1/users/username/${username}`,
+            res = await instance.get(`/api/v1/users/username/${username}`,
                 {
                     headers: {
                         "Authorization": `Bearer ${res.data.token}`
                     }
                 }
-            ));
+            );
+            settype(res.data.type);
+
+            history.push('/dashboard');
         }
         catch (e) {
+            alert("Invalid username or password!");
             elementButton.classList.add('bg-purple-800', 'hover:bg-purple-600', 'hover:shadow-md');
             elementButton.classList.remove('bg-gray-400', 'pointer-events-none');
-            console.log(e);
         }
     }
+
+    useEffect(()  => {
+        localStorage.setItem('loggedIn', JSON.stringify(loggedIn));
+        localStorage.setItem('token', token);
+        localStorage.setItem('type', type);
+    }, [loggedIn, token, type])
 
     return (
         <>
