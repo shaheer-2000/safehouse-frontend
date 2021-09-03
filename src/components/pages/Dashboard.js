@@ -45,46 +45,46 @@ const Dashboard = () => {
                                 (user === 'admin') ?
                                 <>
                                     <div className="mt-6 flex flex-col">
-                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4 inline-block"/>Users</NavLink>
-                                        <NavLink to={"/dashboard/jobs"} className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4 inline-block" />Jobs</NavLink>
-                                        <NavLink to={"/dashboard/training"} className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4 inline-block" />Training</NavLink>
-                                        <NavLink to={"/dashboard/insurance"} className="navlink" activeClassName="bg-selected"><FaUserShield className="mr-4 inline-block" />Insurance</NavLink>
-                                        <NavLink to={"/dashboard/houses"} className="navlink" activeClassName="bg-selected"><BsHouseFill className="mr-4 inline-block" />Houses</NavLink>
-                                        <NavLink to={"/dashboard/rehablitation"} className="navlink" activeClassName="bg-selected"><FaHandHoldingHeart className="mr-4 inline-block" />Rehablitation</NavLink>
-                                        <NavLink to={"/dashboard/applications"} className="navlink" activeClassName="bg-selected"><FaClipboardCheck className="mr-4 inline-block" />Applications</NavLink>
+                                        <NavLink to="/dashboard/users" className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4 inline-block"/>Users</NavLink>
+                                        <NavLink to="/dashboard/jobs" className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4 inline-block" />Jobs</NavLink>
+                                        <NavLink to="/dashboard/training" className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4 inline-block" />Training</NavLink>
+                                        <NavLink to="/dashboard/insurance" className="navlink" activeClassName="bg-selected"><FaUserShield className="mr-4 inline-block" />Insurance</NavLink>
+                                        <NavLink to="/dashboard/houses" className="navlink" activeClassName="bg-selected"><BsHouseFill className="mr-4 inline-block" />Houses</NavLink>
+                                        <NavLink to="/dashboard/rehablitation" className="navlink" activeClassName="bg-selected"><FaHandHoldingHeart className="mr-4 inline-block" />Rehablitation</NavLink>
+                                        <NavLink to="/dashboard/applications" className="navlink" activeClassName="bg-selected"><FaClipboardCheck className="mr-4 inline-block" />Applications</NavLink>
                                     </div>
                                 </> :
                                 (user === 'ngo') ?
                                 <>
                                     <div className="mt-6 flex flex-col">
-                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4 inline-block"/>Users</NavLink>
-                                        <NavLink to={"/dashboard/funding"} className="navlink" activeClassName="bg-selected"><FaHandHoldingUsd className="mr-4" />Fundings</NavLink>
+                                        <NavLink to="/dashboard/users" className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4 inline-block"/>Users</NavLink>
+                                        <NavLink to="/dashboard/funding" className="navlink" activeClassName="bg-selected"><FaHandHoldingUsd className="mr-4" />Fundings</NavLink>
                                     </div>
                                 </> :
                                 (user === 'manager') ?
                                 <>
                                     <div className="mt-6 flex flex-col">
-                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4"/>Users</NavLink>
+                                        <NavLink to="/dashboard/users" className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4"/>Users</NavLink>
                                     </div>
                                 </> :
                                 (user === 'housemate') ?
                                 <>
                                     <div className="mt-6 flex flex-col">
-                                        <NavLink to={"/dashboard/users"} className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4"/>Homeless</NavLink>
-                                        <NavLink to={"/dashboard/jobs"} className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4" />Jobs</NavLink>
-                                        <NavLink to={"/dashboard/training"} className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4" />Training</NavLink>
-                                        <NavLink to={"/dashboard/funding"} className="navlink" activeClassName="bg-selected"><FaHandHoldingUsd className="mr-4" />Fundings</NavLink>
-                                        <NavLink to={"/dashboard/insurance"} className="navlink" activeClassName="bg-selected"><FaUserShield className="mr-4" />Insurance</NavLink>
-                                        <NavLink to={"/dashboard/houses"} className="navlink" activeClassName="bg-selected"><BsHouseFill className="mr-4" />Houses</NavLink>
-                                        <NavLink to={"/dashboard/rehablitation"} className="navlink" activeClassName="bg-selected"><FaHandHoldingHeart className="mr-4" />Rehablitation</NavLink>
+                                        <NavLink to="/dashboard/users" className="navlink" activeClassName="bg-selected"><FaUsers className="mr-4"/>Homeless</NavLink>
+                                        <NavLink to="/dashboard/jobs" className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4" />Jobs</NavLink>
+                                        <NavLink to="/dashboard/training" className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4" />Training</NavLink>
+                                        <NavLink to="/dashboard/funding" className="navlink" activeClassName="bg-selected"><FaHandHoldingUsd className="mr-4" />Fundings</NavLink>
+                                        <NavLink to="/dashboard/insurance" className="navlink" activeClassName="bg-selected"><FaUserShield className="mr-4" />Insurance</NavLink>
+                                        <NavLink to="/dashboard/houses" className="navlink" activeClassName="bg-selected"><BsHouseFill className="mr-4" />Houses</NavLink>
+                                        <NavLink to="/dashboard/rehablitation" className="navlink" activeClassName="bg-selected"><FaHandHoldingHeart className="mr-4" />Rehablitation</NavLink>
                                     </div>  
                                 </> :
                                 <>
                                     <div className="mt-6 flex flex-col">
-                                        <NavLink to={"/dashboard/profile"} className="navlink" activeClassName="bg-selected"><BsPeopleCircle className="mr-4" />Profile</NavLink>
-                                        <NavLink to={"/dashboard/jobs"} className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4" />Jobs</NavLink>
-                                        <NavLink to={"/dashboard/training"} className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4" />Training</NavLink>
-                                        <NavLink to={"/dashboard/applications"} className="navlink" activeClassName="bg-selected"><FaClipboardCheck className="mr-4 inline-block" />Applications</NavLink>
+                                        <NavLink to="/dashboard/profile" className="navlink" activeClassName="bg-selected"><BsPeopleCircle className="mr-4" />Profile</NavLink>
+                                        <NavLink to="/dashboard/jobs" className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4" />Jobs</NavLink>
+                                        <NavLink to="/dashboard/training" className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4" />Training</NavLink>
+                                        <NavLink to="/dashboard/applications" className="navlink" activeClassName="bg-selected"><FaClipboardCheck className="mr-4 inline-block" />Applications</NavLink>
                                     </div>
                                 </>
                             }
@@ -101,15 +101,15 @@ const Dashboard = () => {
                             <Redirect exact from="/dashboard" to="/dashboard/profile" /> :
                             <Redirect exact from="/dashboard" to="/dashboard/users" />
                         }
-                        <Route path={"/dashboard/users"} component={() => <UsersNav user={user} />}></Route>
-                        <Route path={"/dashboard/jobs"} component={() => <JobsNav user={user} />}></Route>
-                        <Route path={"/dashboard/training"} component={() => <TrainingNav user={user} />}></Route>
-                        <Route path={"/dashboard/funding"} component={() => <FundingNav user={user} />}></Route>
-                        <Route path={"/dashboard/houses"} component={() => <HousesNav user={user} />}></Route>
-                        <Route path={"/dashboard/rehablitation"} component={() => <RehablitationNav user={user} />}></Route>
-                        <Route path={"/dashboard/insurance"} component={() => <InsuranceNav user={user} />}></Route>
-                        <Route path={"/dashboard/profile"} component={() => <Profile user={user} />}></Route>
-                        <Route path={"/dashboard/applications"} component={() => <ApplicationsNav user={user} />}></Route>
+                        <Route path="/dashboard/users" component={() => <UsersNav user={user} />}></Route>
+                        <Route path="/dashboard/jobs" component={() => <JobsNav user={user} />}></Route>
+                        <Route path="/dashboard/training" component={() => <TrainingNav user={user} />}></Route>
+                        <Route path="/dashboard/funding" component={() => <FundingNav user={user} />}></Route>
+                        <Route path="/dashboard/houses" component={() => <HousesNav user={user} />}></Route>
+                        <Route path="/dashboard/rehablitation" component={() => <RehablitationNav user={user} />}></Route>
+                        <Route path="/dashboard/insurance" component={() => <InsuranceNav user={user} />}></Route>
+                        <Route path="/dashboard/profile" component={() => <Profile user={user} />}></Route>
+                        <Route path="/dashboard/applications" component={() => <ApplicationsNav user={user} />}></Route>
                     </Switch>
                 </div>
             </div>
