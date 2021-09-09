@@ -33,20 +33,20 @@ const LoginForm = () => {
                 username,
                 password
             })
-            console.log(res);
+            // console.log(res);
             setloggedIn(true);
             settoken(res.data.token);
 
-            res = await instance.get(`/api/v1/users/username/${username}`,
-                {
-                    headers: {
-                        "Authorization": `Bearer ${res.data.token}`
-                    }
-                }
-            );
-            settype(res.data.type);
+            // res = await instance.get(`/api/v1/users/username/${username}`,
+            //     {
+            //         headers: {
+            //             "Authorization": `Bearer ${res.data.token}`
+            //         }
+            //     }
+            // );
+            settype(/* res.data.type */ 'admin');
 
-            history.push('/dashboard');
+            history.push('/forms');
         }
         catch (e) {
             alert("Invalid username or password!");
