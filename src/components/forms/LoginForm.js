@@ -33,7 +33,7 @@ const LoginForm = () => {
                 username,
                 password
             })
-            // console.log(res);
+            console.log(res);
             setloggedIn(true);
             settoken(res.data.token);
 
@@ -44,7 +44,7 @@ const LoginForm = () => {
             //         }
             //     }
             // );
-            settype(/* res.data.type */ 'admin');
+            settype(res.data.role);
 
             history.push('/forms');
         }

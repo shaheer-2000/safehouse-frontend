@@ -1,16 +1,30 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { SimpleInput, TextBoxInput, DropDownInput } from './FormInput';
+import { SimpleInput, DropDownInput, TextBoxInput } from './FormInput';
 
 const Form = (props) => {
-	const userRole = 'admin';
-	const roles = ['admin', 'housemate'];
+	const userRole = localStorage.getItem('type') || 'homeless';
+	console.log(localStorage.getItem('type'), userRole);
+	const roles = {
+		'admin': ['admin', 'ngo'],
+		'manager': ['housemate', 'homeless']
+	};
 
 	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
 	const [role, setRole] = useState('');
 	const [country, setCountry] = useState('');
 	const [city, setCity] = useState('');
+	
+	const [address, setAddress] = useState('');
+	const [description, setDescription] = useState('');
+	const [website, setWebsite] = useState('');
+
+	const [phoneNum, setPhoneNum] = useState('');
+	const [gender, setGender] = useState('-');
+	const [idCardNum, setidCardNum] = useState('');
 
 	// TODO: if role is admin, then allow all options
 	// TODO: if role is manager, then allow housemate and homeless
@@ -33,16 +47,58 @@ const Form = (props) => {
 		}));
 	}) */
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		console.table(Object.entries({
+		let registeredUserRole = 'homeless';
+		if (['admin', 'manager'].includes(userRole)) {
+			registeredUserRole = role;
+		} else {
+			switch (userRole) {
+				case 'ngo':
+					registeredUserRole = 'manager';
+					break;
+				default:
+					registeredUserRole = 'homeless';
+			}
+		}
+
+		const res = await axios.post(`https://safehouse-weavy.herokuapp.com/api/v1/users/${registeredUserRole.endsWith('s') ? registeredUserRole : `${registeredUserRole}s`}`, {
 			username,
+			password,
 			name,
 			email,
 			role,
 			country,
-			city
+			city,
+			address,
+			description,
+			website,
+			phoneNum,
+			idCardNum			
+		}, {
+			headers: {
+				'Authorization': `Bearer ${localStorage.getItem('token')}`,
+				'Content-Type': 'application/json'
+			},
+		});
+
+		console.table(Object.entries(res.data));
+
+		console.table(Object.entries({
+			username,
+			password,
+			name,
+			email,
+			role,
+			gender,
+			country,
+			city,
+			address,
+			description,
+			website,
+			phoneNum,
+			idCardNum
 		}));
 	};
 
@@ -54,9 +110,10 @@ const Form = (props) => {
 						<div className="px-4 py-5 bg-white space-y-6 sm:p-6">
 							<h2 className="text-lg leading-4 text-gray-700">User</h2>
 							<SimpleInput id="username" name="username" label="Username" onChangeHandler={setUsername} />
+							<SimpleInput id="password" name="password" label="Password" type="password" onChangeHandler={setPassword} />
 							<SimpleInput id="name" name="name" label="Name" onChangeHandler={setName} />
 							<SimpleInput id="email" name="email" label="E-mail" type='email' onChangeHandler={setEmail} />
-							{ ['admin', 'manager'].includes(userRole) ? <DropDownInput id="role" name="role" label="Role" options={roles} onChangeHandler={setRole} /> : <></> }
+							{ ['admin', 'manager'].includes(userRole) ? <DropDownInput id="role" name="role" label="Role" options={roles[userRole]} onChangeHandler={setRole} /> : <></> }
 							<div className="grid grid-cols-2">
 								<DropDownInput id="country" name="country" label="Country" options={['Pakistan', 'United States of America', 'United Kingdom', 'Jamaica']} onChangeHandler={setCountry} />
 								<DropDownInput id="city" name="city" label="City" options={['Karachi', 'Lahore', 'Faislabad']} onChangeHandler={setCity} />
@@ -65,8 +122,23 @@ const Form = (props) => {
 						</div>
 						<div className="px-4 py-5 bg-white space-y-6 sm:p-6">							
 							<h2 className="text-lg leading-4 text-gray-700 mb-6">Details</h2>
-							<SimpleInput id="name" name="name" label="Name" />
-							<DropDownInput id="gender" name="gender" label="Gender" options={['Male', 'Female', '-']} />
+							{ userRole === 'ngo' ? 
+								<DropDownInput id="gender" name="gender" label="Gender" options={['Male', 'Female', '-']} onChangeHandler={setGender} />
+								:
+								<></>
+							}
+							{
+								userRole === 'ngo' ?
+									(<>
+										<TextBoxInput id="address" name="address" label="Address" onChangeHandler={setAddress} />
+										<TextBoxInput id="description" name="description" label="Description" onChangeHandler={setDescription} />
+										<SimpleInput id="website" name="website" label="Website" onChangeHandler={setWebsite} />
+									</>) : 
+									(<>
+										<SimpleInput id="id_card_num" name="id_card_num" label="NIC # (National Identity Card Number)" onChangeHandler={setidCardNum} />
+										<SimpleInput id="phone_num" name="phone_num" label="Mobile Phone #" onChangeHandler={setPhoneNum} />
+									</>)
+							}
 						</div>
 					</div>
 				</div>
