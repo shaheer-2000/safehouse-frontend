@@ -7,7 +7,7 @@ const RehablitationNav = () => {
 
     return (
     <div className="w-full h-full flex flex-col bg-secondary">
-        <div className="h-20 px-10 border-b-2 border-gray-300 bg-white flex flex-row items-end">
+        <div className="h-20 w-full px-10 border-b-2 border-gray-300 bg-white flex flex-row items-end fixed z-10">
             <div>
                 <NavLink to="/dashboard/rehablitation/plans" className="tabLink" activeClassName="border-b-2 border-yellow-600">Plans</NavLink>
                 <NavLink to="/dashboard/rehablitation/centers" className="tabLink" activeClassName="border-b-2 border-yellow-600">Centers</NavLink>
@@ -20,7 +20,7 @@ const RehablitationNav = () => {
                 null
             }
         </div>
-        <div>
+        <div className="mt-20 h-full w-full overflow-auto relative">
             <Switch>
                 <Redirect exact from="/dashboard/rehablitation" to="/dashboard/rehablitation/plans" />
                 <Route exact path="/dashboard/rehablitation/plans" component={Plans}></Route>

@@ -11,18 +11,19 @@ let instance = axios.create({
     }
 })
 
-const Housemates = () => {
+const Admins = () => {
     const [users, setusers] = useState([]);
     
     useEffect (async () => {
         try {
-            let res = await instance.get(`/api/v1/users/housemates`,
+            let res = await instance.get(`/api/v1/users/admins`,
                 {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`
                     }
                 }
             );
+
             setusers(res.data);
         }
         catch (e) {
@@ -32,9 +33,9 @@ const Housemates = () => {
 
     return (
     <>
-    <ListItems type="user" data={users} role="housemate" />
+    <ListItems type="user" data={users} role="admin" />
     </>
     )
 }
 
-export default Housemates;
+export default Admins;

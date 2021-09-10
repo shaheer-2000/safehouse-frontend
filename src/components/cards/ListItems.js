@@ -5,40 +5,41 @@ import React from "react";
 const ListItems = (props) => {
     return (
       <div className="flex flex-col">
-        <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-          <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
-            <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+        <div className="-my-2 overflow-x-auto">
+          <div className="pt-2 align-middle inline-block min-w-full">
+            <div className="shadow overflow-hidden border-b border-gray-200">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-secondary">
                   <tr>
-                    {
-                      (props.type === "user") ?
-                      <UserListItemsColumn name = "Name" organization="Organization" role="Role" country="Country"></UserListItemsColumn>:
-                      (props.type === "insurance" || props.type === "employer" || props.type === "trainer" || props.type === "rehab") ?
-                      <AffiliatesListItemsColumn name="Name" address="Address" phone="Phone" website="Website"></AffiliatesListItemsColumn>:
-                      null
-                    }
+                  {
+                    (props.type === "user") ?
+                    <UserListItemsColumn name = "Name" organization="Organization" role="Role" country="Country"></UserListItemsColumn> :
+                    (props.type === "insuranceAgency" || props.type === "jobEmployer" || props.type === "trainingInstructor" || props.type === "rehabCenter") ?
+                    <AffiliatesListItemsColumn name="Name" address="Address" phone="Phone" website="Website"></AffiliatesListItemsColumn> :
+                    null
+                  }
                   </tr>
                 </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
                 {
-                  (props.type === "user")?
+                  (props.type === "user") ?
                   <>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {props.data.map((person) => (
-                      <UserListItemsData key={person.id} person={person}/>
-                    ))}
-                  </tbody>
-                  </>:
-                  (props.type === "insurance" || props.type === "employer" || props.type === "trainer" || props.type === "rehab") ?
+                    {
+                      props.data.map((person, id) => <UserListItemsData key={id} person={person}/>
+                      )
+                    }
+                  </> :
+                  (props.type === "insuranceAgency" || props.type === "jobEmployer" || props.type === "trainingInstructor" || props.type === "rehabCenter") ?
                   <>
-                  <tbody className="bg-white divide-y divide-gray-200">
-                    {props.data.map((affiliate) => (
-                      <AffiliateListItemsData key={affiliate.id} affiliate={affiliate}/>
-                    ))}
-                  </tbody>
-                  </>:
+                    {
+                      props.data?.map((affiliate, id) => {
+                        return <AffiliateListItemsData key={id} affiliate={affiliate}/>
+                      })
+                    }
+                  </> :
                   null
                 }
+                </tbody>
               </table>
             </div>
           </div>

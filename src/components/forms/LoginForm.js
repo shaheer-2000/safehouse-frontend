@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router';
-import { Redirect } from 'react-router-dom';
 
 let instance = axios.create({
     baseURL: 'http://safehouse-weavy.herokuapp.com',
@@ -15,6 +14,7 @@ let instance = axios.create({
 const LoginForm = () => {
     const [username, setusername] = useState('');
     const [password, setpassword] = useState('');
+    const [userid, setuserid] = useState('');
     const [loggedIn, setloggedIn] = useState(false);
     const [token, settoken] = useState('');
     const [type, settype] = useState('');
@@ -36,15 +36,9 @@ const LoginForm = () => {
             console.log(res);
             setloggedIn(true);
             settoken(res.data.token);
-
-            res = await instance.get(`/api/v1/users/username/${username}`,
-                {
-                    headers: {
-                        "Authorization": `Bearer ${res.data.token}`
-                    }
-                }
-            );
-            settype(res.data.type);
+            settype(res.data.role);
+            setusername(res.data.username);
+            setuserid(res.data.id);
 
             history.push('/dashboard');
         }
@@ -59,7 +53,9 @@ const LoginForm = () => {
         localStorage.setItem('loggedIn', JSON.stringify(loggedIn));
         localStorage.setItem('token', token);
         localStorage.setItem('type', type);
-    }, [loggedIn, token, type])
+        localStorage.setItem('username', username);
+        localStorage.setItem('id', userid);
+    }, [loggedIn, token, type, username, userid])
 
     return (
         <>

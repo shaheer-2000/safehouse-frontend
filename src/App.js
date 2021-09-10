@@ -5,6 +5,7 @@ import Dashboard from "./components/pages/Dashboard";
 import PageNotFound from "./components/pages/PageNotFound";
 
 const App = () => {
+
   return (
     <Router>
       <Switch>

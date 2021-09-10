@@ -8,7 +8,7 @@ const JobsNav = () => {
 
     return (
     <div className="w-full h-full flex flex-col bg-secondary">
-        <div className="h-20 px-10 border-b-2 border-gray-300 bg-white flex flex-row items-end">
+        <div className="h-20 w-full px-10 border-b-2 border-gray-300 bg-white flex flex-row items-end fixed z-10">
             <div>
                 <NavLink to="/dashboard/jobs/jobslist" className="tabLink" activeClassName="border-b-2 border-yellow-600">Jobs</NavLink>
                 {
@@ -25,7 +25,7 @@ const JobsNav = () => {
                 null
             }
         </div>
-        <div>
+        <div className="mt-20 h-full w-full overflow-auto relative">
             <Switch>
                 <Redirect exact from="/dashboard/jobs" to="/dashboard/jobs/jobslist" />
                 <Route path="/dashboard/jobs/jobslist" component={Jobs}></Route>

@@ -1,0 +1,34 @@
+.mybox {
+    width: 42px;
+    height: 42px;
+
+    position: absolute;
+    right: 4rem;
+    bottom: 2rem;
+
+    z-index: 20;
+
+    transition: 0.3s;
+}
+
+.chatIcon {
+    width: 42px;
+    height: 42px;
+}
+
+.mybox .weavy {
+    display: none;
+}
+
+.mybox:hover {
+    width: 350px;
+    height: max-content;
+}
+
+.mybox:hover > .weavy {
+    display: block;
+}
+
+.mybox:hover > .chatIcon {
+    display: none;
+}

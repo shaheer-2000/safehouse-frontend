@@ -10,7 +10,7 @@ const Login = () => {
             <div className="w-full h-14 bg-secondary shadow flex flex-row items-center justify-center relative z-10">
                 <h1 className="w-896px h-14 py-3 bg-secondary text-2xl text-primary font-comfortaa">.SafeHouse</h1>
             </div>
-            <div className="w-896px mt-40 flex flex-row justify-center items-center relative">
+            <div className="w-896px mt-32 flex flex-row justify-center items-center relative">
                 <div className="absolute z-0 top-0 -left-14 w-56 h-56 bg-purple-300 rounded-full mix-blend-multiply opacity-40 filter blur-xl animate-blob animation-delay-2000"></div>
                 <div className="absolute z-0 -top-6 left-16 w-56 h-56 bg-pink-300 rounded-full mix-blend-multiply opacity-40 filter blur-xl animate-blob animation-delay-3000"></div>
                 <div className="absolute z-0 top-10 left-36 w-56 h-56 bg-yellow-300 rounded-full mix-blend-multiply opacity-40 filter blur-xl animate-blob animation-delay-6000"></div>
