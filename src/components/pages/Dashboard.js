@@ -1,4 +1,5 @@
 import React from 'react';
+import './Dashboard.css'
 import { Switch, Route, NavLink } from 'react-router-dom';
 import { useHistory, Redirect} from 'react-router';
 import UsersNav from '../features/users/UsersNav';
@@ -9,9 +10,13 @@ import InsuranceNav from '../features/insurance/InsuranceNav';
 import HousesNav from '../features/houses/HousesNav';
 import Profile from '../features/profile/Profile';
 import RehablitationNav from '../features/rehablitation/RehablitationNav';
+import AffiliatesNav from '../features/affiliates/AffiliatesNav';
 import ApplicationsNav from '../features/applications/ApplicationsNav';
-import { BsHouseFill, BsPeopleCircle } from 'react-icons/bs';
-import { FaUsers, FaBriefcase, FaChalkboardTeacher, FaHandHoldingUsd, FaUserShield, FaHandHoldingHeart, FaClipboardCheck } from 'react-icons/fa';
+import Weavy from '../../weavy/Weavy';
+import WeavyApp from '../../weavy/WeavyApp';
+import { BiLogOut } from 'react-icons/bi';
+import { BsHouseFill, BsPeopleCircle, BsChatSquareDotsFill } from 'react-icons/bs';
+import { FaUsers, FaBriefcase, FaChalkboardTeacher, FaHandHoldingUsd, FaUserShield, FaHandHoldingHeart, FaHandshake, FaClipboardCheck } from 'react-icons/fa';
 
 const isLoggedIn = () => {
     let loggedIn = localStorage.getItem('loggedIn');
@@ -32,9 +37,13 @@ const Dashboard = () => {
         return <Redirect to="/" />
     }
 
+    const getJwt = async () => {
+        return "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyLCJpc3MiOiJmY2Q0MWM0ZC0wMTY5LTQwY2EtOWVkMC00ZWIwMTkwYjIyNmUifQ.VkHsZudftpEgLMgHFYhTFi41jaXRswRUHt7MMDy2_-s";
+    }
+
     return (
         <>
-            <div className="w-screen h-screen flex flex-row bg-secondary">
+            <div className="w-screen h-screen flex flex-row bg-secondary overflow-hidden">
                 <div className="w-72 h-full bg-primary text-secondary text-xlc flex flex-col justify-between transform -translate-x-8 opacity-10 animate-appear">
                     <div>
                         <div className="h-20 text-secondary border-b-2 border-gray-100 border-opacity-10 grid place-content-center">
@@ -51,6 +60,7 @@ const Dashboard = () => {
                                         <NavLink to="/dashboard/insurance" className="navlink" activeClassName="bg-selected"><FaUserShield className="mr-4 inline-block" />Insurance</NavLink>
                                         <NavLink to="/dashboard/houses" className="navlink" activeClassName="bg-selected"><BsHouseFill className="mr-4 inline-block" />Houses</NavLink>
                                         <NavLink to="/dashboard/rehablitation" className="navlink" activeClassName="bg-selected"><FaHandHoldingHeart className="mr-4 inline-block" />Rehablitation</NavLink>
+                                        <NavLink to="/dashboard/affiliates" className="navlink" activeClassName="bg-selected"><FaHandshake className="mr-4 inline-block" />Affiliates</NavLink>
                                         <NavLink to="/dashboard/applications" className="navlink" activeClassName="bg-selected"><FaClipboardCheck className="mr-4 inline-block" />Applications</NavLink>
                                     </div>
                                 </> :
@@ -81,7 +91,6 @@ const Dashboard = () => {
                                 </> :
                                 <>
                                     <div className="mt-6 flex flex-col">
-                                        <NavLink to="/dashboard/profile" className="navlink" activeClassName="bg-selected"><BsPeopleCircle className="mr-4" />Profile</NavLink>
                                         <NavLink to="/dashboard/jobs" className="navlink" activeClassName="bg-selected"><FaBriefcase className="mr-4" />Jobs</NavLink>
                                         <NavLink to="/dashboard/training" className="navlink" activeClassName="bg-selected"><FaChalkboardTeacher className="mr-4" />Training</NavLink>
                                         <NavLink to="/dashboard/applications" className="navlink" activeClassName="bg-selected"><FaClipboardCheck className="mr-4 inline-block" />Applications</NavLink>
@@ -90,28 +99,45 @@ const Dashboard = () => {
                             }
                         </div>
                     </div>
-                    <div className="w-32 mx-auto mb-8">
-                        <button className="w-full px-2 py-1 border-2 border-red-600 border-opacity-50 rounded-xl bg-red-600 bg-opacity-50 hover:bg-opacity-100 transition-all" onClick={() => history.push('/')}>Logout</button>
+                    <div className="w-full mx-auto border-t-2 border-gray-100 border-opacity-10 flex flex-row justify-between">
+                        <NavLink to="/dashboard/profile" className="navlink w-full"><BsPeopleCircle className="mr-4" />Profile</NavLink>
+                        <button className="px-4 bg-red-500 bg-opacity-80 text-white hover:bg-opacity-100 transition-all" title="Logout" onClick={() => history.push('/')}><BiLogOut className="w-6 h-6" /></button>
                     </div>
                 </div>
                 <div className="w-full h-full">
                     <Switch>
                         {
                             (user === 'homeless') ?
-                            <Redirect exact from="/dashboard" to="/dashboard/profile" /> :
+                            <Redirect exact from="/dashboard" to="/dashboard/jobs" /> :
                             <Redirect exact from="/dashboard" to="/dashboard/users" />
                         }
-                        <Route path="/dashboard/users" component={() => <UsersNav user={user} />}></Route>
-                        <Route path="/dashboard/jobs" component={() => <JobsNav user={user} />}></Route>
-                        <Route path="/dashboard/training" component={() => <TrainingNav user={user} />}></Route>
-                        <Route path="/dashboard/funding" component={() => <FundingNav user={user} />}></Route>
-                        <Route path="/dashboard/houses" component={() => <HousesNav user={user} />}></Route>
-                        <Route path="/dashboard/rehablitation" component={() => <RehablitationNav user={user} />}></Route>
-                        <Route path="/dashboard/insurance" component={() => <InsuranceNav user={user} />}></Route>
-                        <Route path="/dashboard/profile" component={() => <Profile user={user} />}></Route>
-                        <Route path="/dashboard/applications" component={() => <ApplicationsNav user={user} />}></Route>
+                        <Route path="/dashboard/users" component={UsersNav}></Route>
+                        <Route path="/dashboard/jobs" component={JobsNav}></Route>
+                        <Route path="/dashboard/training" component={TrainingNav}></Route>
+                        <Route path="/dashboard/funding" component={FundingNav}></Route>
+                        <Route path="/dashboard/houses" component={HousesNav}></Route>
+                        <Route path="/dashboard/rehablitation" component={RehablitationNav}></Route>
+                        <Route path="/dashboard/insurance" component={InsuranceNav}></Route>
+                        <Route path="/dashboard/profile" component={Profile}></Route>
+                        <Route path="/dashboard/affiliates" component={AffiliatesNav}></Route>
+                        <Route path="/dashboard/applications" component={ApplicationsNav}></Route>
+                        <Route path="/dashboard/profile" component={ApplicationsNav}></Route>
                     </Switch>
                 </div>
+            </div>
+            <div className="mybox overflow-hidden">
+                <BsChatSquareDotsFill className="chatIcon text-primary" />
+                <Weavy jwt={getJwt}>
+                    <div className="weavy">
+                        <WeavyApp
+                        spaceKey="safehouse"
+                        spaceName="Safehouse"
+                        appKey="messenger-102"
+                        appName="messenger"
+                        appType="messenger"
+                        />
+                    </div>
+                </Weavy>
             </div>
         </>
     )

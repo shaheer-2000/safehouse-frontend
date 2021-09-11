@@ -10,7 +10,7 @@ const ApplicationsNav = () => {
 
     return (
     <div className="w-full h-full flex flex-col bg-secondary">
-        <div className="h-20 px-10 border-b-2 border-gray-300 bg-white flex flex-row items-end">
+        <div className="h-20 w-full px-10 border-b-2 border-gray-300 bg-white flex flex-row items-end fixed z-10">
             <div>
                 <NavLink to="/dashboard/applications/funding" className="tabLink" activeClassName="border-b-2 border-yellow-600">Funding</NavLink>
                 <NavLink to="/dashboard/applications/jobs" className="tabLink" activeClassName="border-b-2 border-yellow-600">Jobs</NavLink>
