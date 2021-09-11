@@ -7,7 +7,7 @@ const Login = () => {
     return (
         <>
         <div className="w-screen h-screen flex flex-col items-center">
-            <div className="w-full h-14 bg-secondary shadow flex flex-row items-center justify-center relative z-10">
+            <div className="w-full h-14 bg-secondary shadow flex flex-row items-center justify-center fixed z-10">
                 <h1 className="w-896px h-14 py-3 bg-secondary text-2xl text-primary font-comfortaa">.SafeHouse</h1>
             </div>
             <div className="w-896px mt-32 flex flex-row justify-center items-center relative">

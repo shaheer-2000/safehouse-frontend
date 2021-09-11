@@ -5,6 +5,7 @@ import Funding from './Funding';
 import Jobs from './Jobs';
 import Training from './Training';
 import Insurance from './Insurance';
+import Rehablitation from './Rehablitation';
 
 const ApplicationsNav = () => {
 
@@ -16,6 +17,7 @@ const ApplicationsNav = () => {
                 <NavLink to="/dashboard/applications/jobs" className="tabLink" activeClassName="border-b-2 border-yellow-600">Jobs</NavLink>
                 <NavLink to="/dashboard/applications/training" className="tabLink" activeClassName="border-b-2 border-yellow-600">Training</NavLink>
                 <NavLink to="/dashboard/applications/insurance" className="tabLink" activeClassName="border-b-2 border-yellow-600">Insurance</NavLink>
+                <NavLink to="/dashboard/applications/rehablitation" className="tabLink" activeClassName="border-b-2 border-yellow-600">Rehablitation</NavLink>
             </div>
         </div>
         <div>
@@ -25,6 +27,7 @@ const ApplicationsNav = () => {
                 <Route exact path="/dashboard/applications/jobs" component={Jobs}></Route>
                 <Route exact path="/dashboard/applications/training" component={Training}></Route>
                 <Route exact path="/dashboard/applications/insurance" component={Insurance}></Route>
+                <Route exact path="/dashboard/applications/rehablitation" component={Rehablitation}></Route>
             </Switch>
         </div>
     </div>)

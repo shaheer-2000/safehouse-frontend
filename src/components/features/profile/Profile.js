@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { FaUserCircle } from "react-icons/fa";
 
@@ -12,11 +13,12 @@ let instance = axios.create({
 })
 
 const Profile = () => {
-    const [user, setuser] = useState({})
-
+    const [user, setuser] = useState({});
+    const { type, username } = useParams();
+    console.log(username);
     useEffect (async () => {
         try {
-            let res = await instance.get(`/api/v1/users/${localStorage.getItem('type')}${localStorage.getItem('type').endsWith('s') ? '' : 's'}?username=${localStorage.getItem('username')}`,
+            let res = await instance.get(`/api/v1/users/${type}${type.endsWith('s') ? '' : 's'}?username=${username}`,
                 {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`

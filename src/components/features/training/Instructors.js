@@ -12,7 +12,7 @@ let instance = axios.create({
 })
 
 const Instructors = () => {
-    const [users, setusers] = useState([]);
+    const [instructors, setinstructors] = useState([]);
     
     useEffect (async () => {
         try {
@@ -23,7 +23,7 @@ const Instructors = () => {
                     }
                 }
             );
-            setusers(res.data);
+            setinstructors(res.data);
             console.log(res);
         }
         catch (e) {
@@ -33,7 +33,7 @@ const Instructors = () => {
 
     return (
     <>
-    <ListItems type="trainingInstructor" />
+    <ListItems type="trainingInstructor" data={instructors}/>
     </>
     )
 }

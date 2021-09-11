@@ -1,24 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import CardItems from '../../cards/CardItems';
 
-const jobs = [
-    {
-        title: "Plumber",
-        designation: "Supervisor",
-        salary: "10000",
-        experience: "2 years",
-        description: "No description"
-    },
-    {
-        title: "Carpenter",
-        designation: "Supervisor",
-        salary: "15000",
-        experience: "2 years",
-        description: "No description"
+let instance = axios.create({
+    baseURL: 'http://safehouse-weavy.herokuapp.com',
+    headers: {
+        post: {
+            'Content-Type': 'application/json'
+        }
     }
-]
+})
 
 const Jobs = () => {
+    const [jobs, setjobs] = useState([]);
+   
+    useEffect (async () => {
+        try {
+            let res = await instance.get(`/api/v1/jobs`,
+                {
+                    headers: {
+                        "Authorization": `Bearer ${localStorage.getItem('token')}`
+                    }
+                }
+            );
+
+            setjobs(res.data);
+            console.log(res.data);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }, [])
+
     return (
         <div className="w-full flex flex-row flex-wrap">
         {

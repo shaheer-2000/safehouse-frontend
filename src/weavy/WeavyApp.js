@@ -40,6 +40,6 @@ export default class WeavyApp extends Component {
   };
 
   render() {
-    return <div className="h-96 w-80 border-2 border-primary rounded-lg overflow-hidden" ref={el => this.el = el} />;
+    return <div className="h-96 w-80 backdrop-filter blur-sm border-2 border-primary rounded-lg overflow-hidden" ref={el => this.el = el} />;
   };
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 import { FaUserCircle } from "react-icons/fa";
 
 function UserListItemsData (props) {
@@ -11,10 +12,12 @@ function UserListItemsData (props) {
               {/* <img className="h-10 w-10 rounded-full" src={person.image} alt="" /> */}
               <FaUserCircle className="h-10 w-10 rounded-full text-primary" />
             </div>
-            <div className="ml-4">
-              <div className="text-sm font-medium text-primary">{person.name}</div>
-              <div className="text-sm text-gray-500">{person.email}</div>
-            </div>
+            <NavLink to={`/dashboard/profile/${person.type}/${person.username}`}>
+              <div className="ml-4">
+                <div className="text-sm font-medium text-primary">{person.name}</div>
+                <div className="text-sm text-gray-500">{person.email}</div>
+              </div>
+            </NavLink>
           </div>
         </td>
         <td className="px-6 py-4 whitespace-nowrap overflow-ellipsis">

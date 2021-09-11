@@ -6,7 +6,6 @@ import Ngos from './Ngos';
 import Managers from './Managers';
 import HouseMates from './HouseMates';
 import Homeless from './Homeless';
-import PageNotFound from '../../pages/PageNotFound';
 
 const UsersNav = () => {
     var type = localStorage.getItem('type');

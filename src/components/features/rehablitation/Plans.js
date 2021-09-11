@@ -1,36 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import CardItems from '../../cards/CardItems';
 
-const plans = [
-    {
-        title: 'Plan 1',
-        type: 'Drugs',
-        duration: '4 weeks',
-        fee: '500',
-        description: 'No description'
-    },
-    {
-        title: 'Plan 2',
-        type: 'Drugs',
-        duration: '2 weeks',
-        fee: '1000',
-        description: 'No description'
-    },
-    {
-        title: 'Plan 3',
-        type: 'Drugs',
-        duration: '3 weeks',
-        fee: '650',
-        description: 'No description'
+let instance = axios.create({
+    baseURL: 'http://safehouse-weavy.herokuapp.com',
+    headers: {
+        post: {
+            'Content-Type': 'application/json'
+        }
     }
-]
+})
 
 const Plans = () => {
+    const [plans, setplans] = useState([]);
+
+    useEffect (async () => {
+        try {
+            let res = await instance.get(`/api/v1/rehab/plans`,
+                {
+                    headers: {
+                        "Authorization": `Bearer ${localStorage.getItem('token')}`
+                    }
+                }
+            );
+
+            setplans(res.data);
+            console.log(res.data);
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }, [])
+
     return (
         <div className="w-full flex flex-row flex-wrap">
         {
             plans.map((item, id) => {
-                return <CardItems key={id} type="rehabPlan" title={item.title} planType={item.type} duration={item.duration} fee={item.fee} description={item.description}/>
+                return <CardItems key={id} type="rehabPlan" id={item.id} title={item.title} planType={item.type} duration={item.duration} fee={item.fee} description={item.description}/>
             })
         }
     </div>

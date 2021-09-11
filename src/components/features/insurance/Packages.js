@@ -4,23 +4,26 @@ import CardItems from '../../cards/CardItems';
 
 const plans = [
     {
+        id: 1,
         title: "Package 1",
-        minCoverage: "1000",
-        maxCoverage: "5000",
+        minCoverage: "0",
+        maxCoverage: "99",
         subscription_charges: "500",
         description: "No description"
     },
     {
+        id: 2,
         title: "Package 2",
-        minCoverage: "1000",
-        maxCoverage: "5000",
+        minCoverage: "0",
+        maxCoverage: "99",
         subscription_charges: "500",
         description: "No description"
     },
     {
+        id: 3,
         title: "Package 3",
-        minCoverage: "1000",
-        maxCoverage: "5000",
+        minCoverage: "0",
+        maxCoverage: "99",
         subscription_charges: "500",
         description: "No description"
     }
@@ -48,7 +51,7 @@ const Packages = () => {
                 }
             );
             setdata(res.data);
-            console.log(res);
+            console.log(res.data);
         }
         catch (e) {
             console.log(e);
@@ -59,7 +62,7 @@ const Packages = () => {
         <div className="w-full flex flex-row flex-wrap">
         {
             plans.map((item, id) => {
-                return <CardItems key={id} type="insurancePlan" title={item.title} minCoverage={item.minCoverage} maxCoverage={item.maxCoverage} fee={item.subscription_charges} description={item.description}/>
+                return <CardItems key={id} type="insurance" id={item.id} title={item.title} minCoverage={item.minCoverage} maxCoverage={item.maxCoverage} fee={item.subscription_charges} description={item.description}/>
             })
         }
     </div>

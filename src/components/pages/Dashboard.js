@@ -43,8 +43,8 @@ const Dashboard = () => {
 
     return (
         <>
-            <div className="w-screen h-screen flex flex-row bg-secondary overflow-hidden">
-                <div className="w-72 h-full bg-primary text-secondary text-xlc flex flex-col justify-between transform -translate-x-8 opacity-10 animate-appear">
+            <div className="w-full h-screen flex flex-row bg-secondary overflow-hidden">
+                <div className="w-72 h-full bg-primary text-secondary text-xlc flex flex-col justify-between transform -translate-x-8 opacity-10 animate-appear overflow-auto">
                     <div>
                         <div className="h-20 text-secondary border-b-2 border-gray-100 border-opacity-10 grid place-content-center">
                             <h1 className="text-2xl font-comfortaa">.SafeHouse</h1>
@@ -100,7 +100,7 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div className="w-full mx-auto border-t-2 border-gray-100 border-opacity-10 flex flex-row justify-between">
-                        <NavLink to="/dashboard/profile" className="navlink w-full"><BsPeopleCircle className="mr-4" />Profile</NavLink>
+                        <NavLink to={`/dashboard/profile/${localStorage.getItem('type')}/${localStorage.getItem('username')}`} className="navlink w-full"><BsPeopleCircle className="mr-4" />Profile</NavLink>
                         <button className="px-4 bg-red-500 bg-opacity-80 text-white hover:bg-opacity-100 transition-all" title="Logout" onClick={() => history.push('/')}><BiLogOut className="w-6 h-6" /></button>
                     </div>
                 </div>
@@ -111,6 +111,7 @@ const Dashboard = () => {
                             <Redirect exact from="/dashboard" to="/dashboard/jobs" /> :
                             <Redirect exact from="/dashboard" to="/dashboard/users" />
                         }
+                        <Route path="/dashboard/profile/:type/:username" component={Profile}></Route>
                         <Route path="/dashboard/users" component={UsersNav}></Route>
                         <Route path="/dashboard/jobs" component={JobsNav}></Route>
                         <Route path="/dashboard/training" component={TrainingNav}></Route>
@@ -118,10 +119,8 @@ const Dashboard = () => {
                         <Route path="/dashboard/houses" component={HousesNav}></Route>
                         <Route path="/dashboard/rehablitation" component={RehablitationNav}></Route>
                         <Route path="/dashboard/insurance" component={InsuranceNav}></Route>
-                        <Route path="/dashboard/profile" component={Profile}></Route>
                         <Route path="/dashboard/affiliates" component={AffiliatesNav}></Route>
                         <Route path="/dashboard/applications" component={ApplicationsNav}></Route>
-                        <Route path="/dashboard/profile" component={ApplicationsNav}></Route>
                     </Switch>
                 </div>
             </div>
